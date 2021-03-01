@@ -6,8 +6,8 @@
           <div class="card-title">{{itemTitle}}</div>
           <div class="card-body">{{itemContent}}</div>
         </div>
-<!-- 
-        <div>{{price}}</div> -->
+        <!-- 
+        <div>{{price}}</div>-->
       </div>
     </div>
   </div>
@@ -22,11 +22,10 @@ export default {
 };
 </script>
 <style scoped>
-
-.card{
- border:1px solid black;
- padding:20px;
-text-align:justify;
-
+.card {
+  border: 1px solid #ebebeb;
+  padding: 20px;
+  text-align: justify;
+  color:#ebebeb
 }
 </style>

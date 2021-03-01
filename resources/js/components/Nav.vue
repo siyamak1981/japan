@@ -11,17 +11,16 @@
 
 <script>
 export default {
-    name:"Nav",
-   
-}
+  name: "Nav",
+};
 </script>
 <style scoped>
-
-.container-fluid{
- position: absolute;
+.container-fluid {
+  position: absolute;
   top: 0%;
   left: 0%;
-  background: rgb(107, 171, 243);
+  background: #000;
+   border:1px solid #610116;
   width: 100%;
   margin: 0%;
   padding: 0%;

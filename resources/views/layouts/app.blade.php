@@ -26,3 +26,8 @@
     </div>
 </body>
 </html>
+<style>
+    body{
+        background:#111;
+    }
+</style>

@@ -55,13 +55,16 @@ export default {
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 80px;
+  width: 70px;
   padding: 10px;
-  border: 1px solid #eee;
   z-index: 9999;
   transition: all 0.5s ease-in-out;
-  min-height: calc(100vh - 20px);
-  background: rgb(27, 27, 27);
+  min-height: calc(100vh);
+  overflow: hidden;
+  background: #000;
+  border-left:1px solid #610116;
+  border-bottom:1px solid #610116;
+  border-top:1px solid #610116;
 }
 .control {
   display: flex;
@@ -73,7 +76,7 @@ export default {
 }
 .control i {
   font-size: 20px;
-  color: orange;
+  color: #fa1e4e;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
@@ -81,33 +84,33 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 50px;
   float: left;
   flex-direction: column;
 }
 .navigation-icons i {
   font-size: 1rem;
-  color: orange;
+  color: #fa1e4e;
   cursor: pointer;
   padding: 20px 0;
   transition: all 0.5s ease-in-out;
 }
 .navigation-icons i:hover {
-  color: palegoldenrod;
+  color: #ebebeb;
 }
 .show {
   width: 220px;
 }
 .show .navigation-icons > i {
   display: flex;
-  color: #eee;
+  color: #ebebeb;
 }
 .show .navigation-icons > i:hover {
   display: flex;
-  color: rgb(245, 8, 8);
+  color: #fa1e4e;
 }
 .show .control > i {
-  color: #eee;
+  color: #ebebeb;
   transform: rotateZ(-180deg);
 }
 .navigation-link {
@@ -117,12 +120,12 @@ export default {
 .navigation-link div {
   margin-bottom: 37px;
   cursor: pointer;
-  color: #eee;
+  color: #ebebeb;
 
 
 }
 .navigation-link div:hover {
-  color: orange;
+  color: #fa1e4e;
 }
 
 .fade-enter,
@@ -140,27 +143,27 @@ export default {
   transition: all 750ms ease-in-out;
 }
  .router-link-exact-active{
-  background: yellow;
+  background: #fa1e4e;
   border-radius: 5px;
-  color: red;
+  color: #ebebeb;
   font-variant: italic;
   text-decoration: none;
 }
  div .router-link-active{
-  background: yellow;
-  color: red;
+  background: #fa1e4e;
+  color: #ebebeb;
   border-radius: 3px;
   padding:15px;
   font-variant: italic;
   text-decoration: none;
 }
 div a{
-  color:#eee;
+  color:#ebebeb;
  text-decoration: none;
 
 }
 div a:hover{
-  color: orange;
+  color: #fa1e4e;
 
 }
 </style>
