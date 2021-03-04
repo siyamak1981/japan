@@ -1,6 +1,10 @@
 <template>
   <div>
-    <navbar></navbar>
+
+   
+    <navigation >
+    </navigation>
+    <!-- <content></content> -->
     <sidebar></sidebar>
     <div class="distance-sidbar">
 
@@ -11,12 +15,15 @@
 
 <script>
 import SideBar from "../SideBar.vue";
-import Nav from "../Nav.vue";
+import Navigation from "../Navigation.vue";
+// import Content from "../Content.vue";
 
 export default {
+
   components: {
     sidebar: SideBar,
-    navbar: Nav,
+    navigation: Navigation,
+    // content:Content
   },
 };
 var _hmt = _hmt || [];
@@ -27,7 +34,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<style >
+<style>
 * {
   box-sizing: border-box;
 }
@@ -44,6 +51,7 @@ var _hmt = _hmt || [];
 [class*="col-"] {
   width: 100%;
 }
+
 @media only screen and (min-width: 480px) {
   /* For tablets: */
   .col-m-1 {
@@ -83,7 +91,7 @@ var _hmt = _hmt || [];
     width: 100%;
   }
    .distance-sidbar{
-    margin-left:250px;
+    margin-left:50px;
     margin-top:50px
 
   }
@@ -127,9 +135,11 @@ var _hmt = _hmt || [];
     width: 100%;
   }
   .distance-sidbar{
-    margin-left:250px;
+    margin-left:50px;
     margin-top:50px;
+    
   }
+ 
 }
 </style>
 

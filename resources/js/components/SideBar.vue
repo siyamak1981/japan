@@ -8,18 +8,19 @@
       <i class="fas fa-camera-retro"></i>
       <i class="fas fa-user-circle"></i>
       <i class="fas fa-comment-dots"></i>
-   
     </div>
     <div class="navigation-link">
       <transition-group name="fade" appear>
-        <div v-show="showLink" :class="{textDecoration:isActive}" key="1" ><router-link :to="{name:'home'}">Home</router-link></div>
-        <div v-show="showLink" key="3"><router-link :to="{name:'bookables'}">Bookable</router-link></div>
+        <div v-show="showLink" :class="{textDecoration:isActive}" key="1">
+          <router-link :to="{name:'home'}">Home</router-link>
+        </div>
+        <div v-show="showLink" key="3">
+          <router-link :to="{name:'bookables'}">Bookable</router-link>
+        </div>
         <div v-show="showLink" key="4">Contact</div>
         <div v-show="showLink" key="5">FAQ</div>
       </transition-group>
-     
     </div>
-  
   </div>
 </template>
 <script>
@@ -28,7 +29,7 @@ export default {
     return {
       showSidebar: false,
       showLink: false,
- isActive:true,
+      isActive: true,
     };
   },
   methods: {
@@ -37,12 +38,17 @@ export default {
         this.showLink = false;
         setTimeout(() => {
           this.showSidebar = false;
+          document.getElementById("app").style.paddingLeft = "50px";
+          document.getElementById("navigation").style.left = "72px";
         }, 500);
       } else {
         this.showSidebar = true;
+        document.getElementById("app").style.paddingLeft = "150px";
 
         setTimeout(() => {
           this.showLink = true;
+          document.getElementById("app").style.paddingLeft = "150px";
+          document.getElementById("navigation").style.left = "220px";
         }, 500);
       }
     },
@@ -50,7 +56,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .container {
   position: absolute;
   top: 0%;
@@ -62,9 +67,9 @@ export default {
   min-height: calc(100vh);
   overflow: hidden;
   background: #000;
-  border-left:1px solid #610116;
-  border-bottom:1px solid #610116;
-  border-top:1px solid #610116;
+  border-left: 1px solid #610116;
+  border-bottom: 1px solid #610116;
+  border-top: 1px solid #610116;
 }
 .control {
   display: flex;
@@ -115,14 +120,12 @@ export default {
 }
 .navigation-link {
   padding-top: 20px;
-  float: left; 
+  float: left;
 }
 .navigation-link div {
   margin-bottom: 37px;
   cursor: pointer;
   color: #ebebeb;
-
-
 }
 .navigation-link div:hover {
   color: #fa1e4e;
@@ -142,28 +145,26 @@ export default {
 .fade-leave-active {
   transition: all 750ms ease-in-out;
 }
- .router-link-exact-active{
+.router-link-exact-active {
   background: #fa1e4e;
   border-radius: 5px;
   color: #ebebeb;
   font-variant: italic;
   text-decoration: none;
 }
- div .router-link-active{
+div .router-link-active {
   background: #fa1e4e;
   color: #ebebeb;
   border-radius: 3px;
-  padding:15px;
+  padding: 15px;
   font-variant: italic;
   text-decoration: none;
 }
-div a{
-  color:#ebebeb;
- text-decoration: none;
-
+div a {
+  color: #ebebeb;
+  text-decoration: none;
 }
-div a:hover{
+div a:hover {
   color: #fa1e4e;
-
 }
-</style>
+</style> 
