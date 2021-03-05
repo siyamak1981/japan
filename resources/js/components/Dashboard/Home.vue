@@ -1,14 +1,10 @@
 <template>
   <div>
-
-   
-    <navigation >
-    </navigation>
+    <navigation></navigation>
     <!-- <content></content> -->
     <sidebar></sidebar>
     <div class="distance-sidbar">
-
-    <router-view></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -19,7 +15,6 @@ import Navigation from "../Navigation.vue";
 // import Content from "../Content.vue";
 
 export default {
-
   components: {
     sidebar: SideBar,
     navigation: Navigation,
@@ -90,10 +85,9 @@ var _hmt = _hmt || [];
   .col-m-12 {
     width: 100%;
   }
-   .distance-sidbar{
-    margin-left:50px;
-    margin-top:50px
-
+  .distance-sidbar {
+    margin-left: 50px;
+    margin-top: 50px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -134,12 +128,10 @@ var _hmt = _hmt || [];
   .col-12 {
     width: 100%;
   }
-  .distance-sidbar{
-    margin-left:50px;
-    margin-top:50px;
-    
+  .distance-sidbar {
+    margin-left: 50px;
+    margin-top: 50px;
   }
- 
 }
 </style>
 

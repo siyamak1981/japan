@@ -1,17 +1,20 @@
 <template>
   <div class="col-m-12">
-    <div v-if="loading">this is loading wait ....</div>
+    <div v-if="loading" class="loading">this is loading wait ....</div>
     <div v-else>
       <div class="row" v-for="row in rows" :key="'row' + row">
-        <div class="col-4" v-for="(bookable, column) in bookableInRow(row)" :key="'row' + row + column">
+        <div
+          class="col-4"
+          v-for="(bookable, column) in bookableInRow(row)"
+          :key="'row' + row + column"
+        >
           <bookable-list-item
             :item-title="bookable.title"
-            :item-content="bookable.content"
+            :item-description="bookable.description"
             :price="1000"
           ></bookable-list-item>
         </div>
-        <div v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p">
-        </div>
+        <div v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p"></div>
       </div>
     </div>
   </div>
@@ -42,49 +45,44 @@ export default {
     bookableInRow(row) {
       return this.bookables.slice((row - 1) * this.columns, row * this.columns);
     },
-    placeholdersInRow(row){
-      return this.columns - this.bookableInRow.length 
-    }
+    placeholdersInRow(row) {
+      return this.columns - this.bookableInRow.length;
+    },
   },
   created() {
     this.loading = true;
-    setTimeout(() => {
-      this.bookables = [
-        {
-          title: "php developer",
-          content: "this is my proj by php",
-        },
-        {
-          title: "python developer",
-          content: "project by python developer",
-        },
-        {
-          title: "php developer",
-          content: "this is my proj by php",
-        },
-        {
-          title: "python developer",
-          content: "project by python developer",
-        },
-        {
-          title: "php developer",
-          content: "this is my proj by php",
-        },
-        {
-          title: "python developer",
-          content: "project by python developer",
-        },
-        {
-          title: "php developer",
-          content: "this is my proj by php",
-        },
-        {
-          title: "python developer",
-          content: "project by python developer",
-        },
-      ];
-      this.loading = false;
-    }, 2000);
+    const p = new Promise((resolve, reject) => {
+      // console.log(resolve);
+      // console.log(reject);
+      setTimeout(() => {
+        resolve("hello");
+      }, 3000);
+    })
+      .then((response) => {
+        // console.log(response)
+      })
+      .catch((error) => {
+        // console.log("error)",error);
+      });
+
+    const poing = axios
+      .get("bookables")
+      .then((response) => {
+        this.bookables = response.data.bookables;
+        console.log(this.bookables);
+        this.loading = false;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
+<style scoped>
+div .loading {
+  color: #ebebeb;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2rem;
+}
+</style>

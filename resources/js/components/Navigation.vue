@@ -15,26 +15,17 @@
 <script>
 export default {
   name: "Nav",
-   data() {
-    return {
-
-    };
+  data() {
+    return {};
   },
-
-   
 };
-
 </script>
 
 <style>
-
 #navigation {
-  position: absolute;
-  top: 0%;
-  left: 72px;
+  margin-left: 75px;
   background: #000;
-  border: 1px solid #610116;
-  width: 100%;
+  border-bottom: 1px solid #610116;
   height: 60px;
 }
 .navbar {

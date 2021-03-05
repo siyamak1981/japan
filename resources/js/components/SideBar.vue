@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{'show':showSidebar}">
+  <div class="container-sidebar" :class="{'show':showSidebar}">
     <div class="control">
       <i class="fas fa-angle-double-right" @click="showNav"></i>
     </div>
@@ -39,7 +39,7 @@ export default {
         setTimeout(() => {
           this.showSidebar = false;
           document.getElementById("app").style.paddingLeft = "50px";
-          document.getElementById("navigation").style.left = "72px";
+          document.getElementById("navigation").style.marginLeft = "28px";
         }, 500);
       } else {
         this.showSidebar = true;
@@ -47,8 +47,8 @@ export default {
 
         setTimeout(() => {
           this.showLink = true;
+          document.getElementById("navigation").style.marginLeft = "68px";
           document.getElementById("app").style.paddingLeft = "150px";
-          document.getElementById("navigation").style.left = "220px";
         }, 500);
       }
     },
@@ -56,16 +56,17 @@ export default {
 };
 </script>
 <style scoped>
-.container {
+.container-sidebar {
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 70px;
+  width: 80px;
   padding: 10px;
   z-index: 9999;
   transition: all 0.5s ease-in-out;
   min-height: calc(100vh);
   overflow: hidden;
+  position:fixed;
   background: #000;
   border-left: 1px solid #610116;
   border-bottom: 1px solid #610116;

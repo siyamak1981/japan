@@ -11,10 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->delete();
-     
         
-        factory(App\User::class, 3)->create();  
-        // $this->call(UserSeeder::class);
+        $this->call(BookableTableSeeder::class);
+        $this->call(UserTableSeeder::class);
     }
 }
