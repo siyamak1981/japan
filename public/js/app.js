@@ -1920,7 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
  // import Content from "../Content.vue";
 
@@ -1962,10 +1961,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Nav",
   data: function data() {
@@ -1984,9 +1979,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -2043,6 +2035,44 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      bookable: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("bookables/${this.$route.params.id}").then(function (response) {
+      _this.bookable = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/BookableListenItem.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bookables/BookableListenItem.vue?vue&type=script&lang=js& ***!
@@ -2061,13 +2091,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    itemTitle: String,
-    itemDescription: String,
-    price: Number
+    title: String,
+    description: String,
+    id: Number
   },
   data: function data() {
     return {};
@@ -2170,7 +2198,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n* {\r\n  box-sizing: border-box;\n}\n.row:after {\r\n  content: \"\";\r\n  clear: both;\r\n  display: block;\n}\n[class*=\"col-\"] {\r\n  float: left;\r\n  padding: 15px;\n}\r\n/* For mobile phones: */\n[class*=\"col-\"] {\r\n  width: 100%;\n}\n@media only screen and (min-width: 480px) {\r\n  /* For tablets: */\n.col-m-1 {\r\n    width: 8.33%;\n}\n.col-m-2 {\r\n    width: 16.66%;\n}\n.col-m-3 {\r\n    width: 25%;\n}\n.col-m-4 {\r\n    width: 33.33%;\n}\n.col-m-5 {\r\n    width: 41.66%;\n}\n.col-m-6 {\r\n    width: 50%;\n}\n.col-m-7 {\r\n    width: 58.33%;\n}\n.col-m-8 {\r\n    width: 66.66%;\n}\n.col-m-9 {\r\n    width: 75%;\n}\n.col-m-10 {\r\n    width: 83.33%;\n}\n.col-m-11 {\r\n    width: 91.66%;\n}\n.col-m-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\n@media only screen and (min-width: 768px) {\r\n  /* For desktop: */\n.col-1 {\r\n    width: 8.33%;\n}\n.col-2 {\r\n    width: 16.66%;\n}\n.col-3 {\r\n    width: 25%;\n}\n.col-4 {\r\n    width: 33.33%;\n}\n.col-5 {\r\n    width: 41.66%;\n}\n.col-6 {\r\n    width: 50%;\n}\n.col-7 {\r\n    width: 58.33%;\n}\n.col-8 {\r\n    width: 66.66%;\n}\n.col-9 {\r\n    width: 75%;\n}\n.col-10 {\r\n    width: 83.33%;\n}\n.col-11 {\r\n    width: 91.66%;\n}\n.col-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n* {\r\n  margin: 0%;\r\n  box-sizing: border-box;\n}\n.row:after {\r\n  content: \"\";\r\n  clear: both;\r\n  display: block;\n}\n[class*=\"col-\"] {\r\n  float: left;\r\n  padding: 15px;\n}\r\n/* For mobile phones: */\n[class*=\"col-\"] {\r\n  width: 100%;\n}\n@media only screen and (min-width: 480px) {\r\n  /* For tablets: */\n.col-m-1 {\r\n    width: 8.33%;\n}\n.col-m-2 {\r\n    width: 16.66%;\n}\n.col-m-3 {\r\n    width: 25%;\n}\n.col-m-4 {\r\n    width: 33.33%;\n}\n.col-m-5 {\r\n    width: 41.66%;\n}\n.col-m-6 {\r\n    width: 50%;\n}\n.col-m-7 {\r\n    width: 58.33%;\n}\n.col-m-8 {\r\n    width: 66.66%;\n}\n.col-m-9 {\r\n    width: 75%;\n}\n.col-m-10 {\r\n    width: 83.33%;\n}\n.col-m-11 {\r\n    width: 91.66%;\n}\n.col-m-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\n@media only screen and (min-width: 768px) {\r\n  /* For desktop: */\n.col-1 {\r\n    width: 8.33%;\n}\n.col-2 {\r\n    width: 16.66%;\n}\n.col-3 {\r\n    width: 25%;\n}\n.col-4 {\r\n    width: 33.33%;\n}\n.col-5 {\r\n    width: 41.66%;\n}\n.col-6 {\r\n    width: 50%;\n}\n.col-7 {\r\n    width: 58.33%;\n}\n.col-8 {\r\n    width: 66.66%;\n}\n.col-9 {\r\n    width: 75%;\n}\n.col-10 {\r\n    width: 83.33%;\n}\n.col-11 {\r\n    width: 91.66%;\n}\n.col-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -2189,7 +2217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#navigation {\r\n  margin-left: 75px;\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  height: 60px;\n}\n.navbar {\r\n  float: right;\n}\n.navbar #search {\r\n  position: absolute;\r\n  right: 250px;\r\n  background: #ebebeb;\r\n  padding: 5px;\r\n  border: 2px solid #610116;\r\n  border-radius: 50px;\r\n  color: #000;\r\n  color: #000;\n}\n.navbar i {\r\n  position: relative;\r\n  color: #fa1e4e;\r\n  right: 252px;\r\n  padding: 6px;\n}\r\n", ""]);
+exports.push([module.i, "\n#navigation {\r\n\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  height: 60px;\n}\n.navbar {\r\n  float: right;\n}\n.navbar #search {\r\n  background: #ebebeb;\r\n  padding: 5px;\r\n  margin-right: 100px;\r\n  border: 2px solid #610116;\r\n  border-radius: 50px;\r\n  color: #000;\r\n  margin-top: 15px;\n}\n.navbar i {\r\nposition: absolute;\r\n    color: #fa1e4e;\r\n    right: 111px;\r\n    top: 23px;\n}\r\n", ""]);
 
 // exports
 
@@ -2208,7 +2236,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container-sidebar[data-v-223abea1] {\r\n  position: absolute;\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 10px;\r\n  z-index: 9999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position:fixed;\r\n  background: #000;\r\n  border-left: 1px solid #610116;\r\n  border-bottom: 1px solid #610116;\r\n  border-top: 1px solid #610116;\n}\n.control[data-v-223abea1] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 60px;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\n}\n.control i[data-v-223abea1] {\r\n  font-size: 20px;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons[data-v-223abea1] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\n}\n.navigation-icons i[data-v-223abea1] {\r\n  font-size: 1rem;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-223abea1]:hover {\r\n  color: #ebebeb;\n}\n.show[data-v-223abea1] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-223abea1] {\r\n  display: flex;\r\n  color: #ebebeb;\n}\n.show .navigation-icons > i[data-v-223abea1]:hover {\r\n  display: flex;\r\n  color: #fa1e4e;\n}\n.show .control > i[data-v-223abea1] {\r\n  color: #ebebeb;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-223abea1] {\r\n  padding-top: 20px;\r\n  float: left;\n}\n.navigation-link div[data-v-223abea1] {\r\n  margin-bottom: 37px;\r\n  cursor: pointer;\r\n  color: #ebebeb;\n}\n.navigation-link div[data-v-223abea1]:hover {\r\n  color: #fa1e4e;\n}\n.fade-enter[data-v-223abea1],\r\n.fade-leave-to[data-v-223abea1] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-223abea1],\r\n.fade-enter-to[data-v-223abea1] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-223abea1],\r\n.fade-leave-active[data-v-223abea1] {\r\n  transition: all 750ms ease-in-out;\n}\n.router-link-exact-active[data-v-223abea1] {\r\n  background: #fa1e4e;\r\n  border-radius: 5px;\r\n  color: #ebebeb;\r\n  font-variant: italic;\r\n  text-decoration: none;\n}\ndiv .router-link-active[data-v-223abea1] {\r\n  background: #fa1e4e;\r\n  color: #ebebeb;\r\n  border-radius: 3px;\r\n  padding: 15px;\r\n  font-variant: italic;\r\n  text-decoration: none;\n}\ndiv a[data-v-223abea1] {\r\n  color: #ebebeb;\r\n  text-decoration: none;\n}\ndiv a[data-v-223abea1]:hover {\r\n  color: #fa1e4e;\n}\r\n", ""]);
+exports.push([module.i, "\n.container-sidebar[data-v-223abea1] {\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 8px;\r\n  z-index: 999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position: fixed;\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  border-left: 1px solid #610116;\r\n  border-right: 1px solid #610116;\n}\n.control[data-v-223abea1] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 60px;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\n}\n.control i[data-v-223abea1] {\r\n  font-size: 20px;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons[data-v-223abea1] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\n}\n.navigation-icons i[data-v-223abea1] {\r\n  font-size: 1rem;\r\n  color: #610116;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-223abea1]:hover {\r\n  color: #ebebeb;\n}\n.show[data-v-223abea1] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-223abea1] {\r\n  display: flex;\r\n  color: #ebebeb;\n}\n.show .navigation-icons > i[data-v-223abea1]:hover {\r\n  display: flex;\r\n  color: #fa1e4e;\n}\n.show .control > i[data-v-223abea1] {\r\n  color: #ebebeb;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-223abea1] {\r\n  margin-top: 20px;\r\n  width: 200px;\n}\n.navigation-link div[data-v-223abea1] {\r\n  cursor: pointer;\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 5px;\r\n  align-content: stretch;\n}\n.navigation-link div[data-v-223abea1]:hover {\r\n  color: #f7ced7;\n}\n.fade-enter[data-v-223abea1],\r\n.fade-leave-to[data-v-223abea1] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-223abea1],\r\n.fade-enter-to[data-v-223abea1] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-223abea1],\r\n.fade-leave-active[data-v-223abea1] {\r\n  transition: all 750ms ease-in-out;\n}\ndiv .router-link-active[data-v-223abea1] {\r\n  background: #610116;\r\n  color: #ebebeb;\r\n  padding-left: 50px;\r\n  padding-top: 11px;\r\n  padding-bottom: 10px;\r\n  margin-top: 5px;\r\n  margin-right: 5px;\r\n  width: 100%;\r\n  text-decoration: none;\n}\ndiv a[data-v-223abea1] {\r\n  color: #ebebeb;\r\n  text-decoration: none;\n}\ndiv a[data-v-223abea1]:hover {\r\n  color: #fa1e4e;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ndiv[data-v-829c5ae6] {\r\n  margin: 200px;\r\n  color: yellow;\n}\r\n", ""]);
 
 // exports
 
@@ -2227,7 +2274,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.card[data-v-50853632] {\r\n  border: 1px solid #ebebeb;\r\n  padding: 20px;\r\n  margin-left:10px;\r\n  text-align: justify;\r\n  color:#ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: stretch;\r\n  justify-content: center;\r\n  align-content: stretch;\r\n  height: 150px;\r\n  overflow: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.card[data-v-50853632] {\r\n  border: 1px solid #fa1e4e;\r\n  padding: 20px;\r\n  margin-left: 25px;\r\n  text-align: justify;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: stretch;\r\n  justify-content: center;\r\n  align-content: stretch;\r\n  height: 150px;\r\n  overflow: auto;\n}\r\n", ""]);
 
 // exports
 
@@ -2816,6 +2863,36 @@ options.transform = transform
 options.insertInto = undefined;
 
 var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -3547,28 +3624,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "container-fluid", attrs: { id: "navigation" } },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "navbar" }, [
-              _c("input", {
-                attrs: {
-                  type: "search",
-                  name: "search",
-                  id: "search",
-                  placeholder: " Search ..."
-                }
-              }),
-              _vm._v(" "),
-              _c("i", { staticClass: "fas fa-search" })
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("div", { attrs: { id: "navigation" } }, [
+      _c("div", { staticClass: "navbar" }, [
+        _c("input", {
+          attrs: {
+            type: "search",
+            name: "search",
+            id: "search",
+            placeholder: " Search ..."
+          }
+        }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-search" })
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -3651,38 +3720,6 @@ var render = function() {
                 ])
               ],
               1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "4"
-              },
-              [_vm._v("Contact")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showLink,
-                    expression: "showLink"
-                  }
-                ],
-                key: "5"
-              },
-              [_vm._v("FAQ")]
             )
           ])
         ],
@@ -3699,14 +3736,34 @@ var staticRenderFns = [
     return _c("div", { staticClass: "navigation-icons" }, [
       _c("i", { staticClass: "fas fa-home" }),
       _vm._v(" "),
-      _c("i", { staticClass: "fas fa-camera-retro" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-user-circle" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fas fa-comment-dots" })
+      _c("i", { staticClass: "fas fa-camera-retro" })
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("XXX")])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3730,11 +3787,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
     _c("div", { staticClass: "cart-body" }, [
-      _c("div", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.itemTitle))]),
+      _c("div", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-text" }, [
-        _vm._v(_vm._s(_vm.itemDescription))
-      ])
+      _c("div", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.description))])
     ])
   ])
 }
@@ -3779,9 +3834,9 @@ var render = function() {
                     [
                       _c("bookable-list-item", {
                         attrs: {
-                          "item-title": bookable.title,
-                          "item-description": bookable.description,
-                          price: 1000
+                          title: bookable.title,
+                          description: bookable.description,
+                          price: bookable.id
                         }
                       })
                     ],
@@ -19434,6 +19489,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/bookables/Bookable.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/bookables/Bookable.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bookable.vue?vue&type=template&id=829c5ae6&scoped=true& */ "./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true&");
+/* harmony import */ var _Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookable.vue?vue&type=script&lang=js& */ "./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& */ "./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "829c5ae6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/bookables/Bookable.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bookable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=style&index=0&id=829c5ae6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_style_index_0_id_829c5ae6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bookable.vue?vue&type=template&id=829c5ae6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/bookables/Bookable.vue?vue&type=template&id=829c5ae6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_829c5ae6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/bookables/BookableListenItem.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/bookables/BookableListenItem.vue ***!
@@ -19619,11 +19761,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Dashboard_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Dashboard/Home.vue */ "./resources/js/components/Dashboard/Home.vue");
 /* harmony import */ var _components_bookables_Bookables_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/bookables/Bookables.vue */ "./resources/js/components/bookables/Bookables.vue");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_bookables_Bookable_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/bookables/Bookable.vue */ "./resources/js/components/bookables/Bookable.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
+
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
   mode: "history",
   routes: [{
     name: "home",
@@ -19633,6 +19777,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
       name: "bookables",
       path: "/bookables",
       component: _components_bookables_Bookables_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    }, {
+      name: "bookable",
+      path: "/bookable/:id",
+      component: _components_bookables_Bookable_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
     }]
   }]
 });

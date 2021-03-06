@@ -1,7 +1,6 @@
 <template>
   <div>
     <navigation></navigation>
-    <!-- <content></content> -->
     <sidebar></sidebar>
     <div class="distance-sidbar">
       <router-view></router-view>
@@ -31,6 +30,7 @@ var _hmt = _hmt || [];
 </script>
 <style>
 * {
+  margin: 0%;
   box-sizing: border-box;
 }
 .row:after {

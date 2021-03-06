@@ -6,8 +6,7 @@
     <div class="navigation-icons">
       <i class="fas fa-home"></i>
       <i class="fas fa-camera-retro"></i>
-      <i class="fas fa-user-circle"></i>
-      <i class="fas fa-comment-dots"></i>
+
     </div>
     <div class="navigation-link">
       <transition-group name="fade" appear>
@@ -17,8 +16,6 @@
         <div v-show="showLink" key="3">
           <router-link :to="{name:'bookables'}">Bookable</router-link>
         </div>
-        <div v-show="showLink" key="4">Contact</div>
-        <div v-show="showLink" key="5">FAQ</div>
       </transition-group>
     </div>
   </div>
@@ -57,20 +54,19 @@ export default {
 </script>
 <style scoped>
 .container-sidebar {
-  position: absolute;
   top: 0%;
   left: 0%;
   width: 80px;
-  padding: 10px;
-  z-index: 9999;
+  padding: 8px;
+  z-index: 999;
   transition: all 0.5s ease-in-out;
   min-height: calc(100vh);
   overflow: hidden;
-  position:fixed;
+  position: fixed;
   background: #000;
-  border-left: 1px solid #610116;
   border-bottom: 1px solid #610116;
-  border-top: 1px solid #610116;
+  border-left: 1px solid #610116;
+  border-right: 1px solid #610116;
 }
 .control {
   display: flex;
@@ -96,7 +92,7 @@ export default {
 }
 .navigation-icons i {
   font-size: 1rem;
-  color: #fa1e4e;
+  color: #610116;
   cursor: pointer;
   padding: 20px 0;
   transition: all 0.5s ease-in-out;
@@ -120,16 +116,18 @@ export default {
   transform: rotateZ(-180deg);
 }
 .navigation-link {
-  padding-top: 20px;
-  float: left;
+  margin-top: 20px;
+  width: 200px;
 }
 .navigation-link div {
-  margin-bottom: 37px;
   cursor: pointer;
-  color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  align-content: stretch;
 }
 .navigation-link div:hover {
-  color: #fa1e4e;
+  color: #f7ced7;
 }
 
 .fade-enter,
@@ -146,19 +144,16 @@ export default {
 .fade-leave-active {
   transition: all 750ms ease-in-out;
 }
-.router-link-exact-active {
-  background: #fa1e4e;
-  border-radius: 5px;
-  color: #ebebeb;
-  font-variant: italic;
-  text-decoration: none;
-}
+
 div .router-link-active {
-  background: #fa1e4e;
+  background: #610116;
   color: #ebebeb;
-  border-radius: 3px;
-  padding: 15px;
-  font-variant: italic;
+  padding-left: 50px;
+  padding-top: 11px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 100%;
   text-decoration: none;
 }
 div a {

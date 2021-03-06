@@ -1,17 +1,15 @@
 <template>
- 
-        <div class="card">
-          <div class="cart-body">
-          <div class="card-title">{{itemTitle}}</div>
-          <div class="card-text">{{itemDescription}}</div>
-          </div>
-        </div>
-
+  <div class="card">
+    <div class="cart-body">
+      <div class="card-title">{{title}}</div>
+      <div class="card-text">{{description}}</div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: { itemTitle: String, itemDescription: String, price: Number },
+  props: { title: String, description: String, id: Number },
   data() {
     return {};
   },
@@ -19,11 +17,11 @@ export default {
 </script>
 <style scoped>
 .card {
-  border: 1px solid #ebebeb;
+  border: 1px solid #fa1e4e;
   padding: 20px;
-  margin-left:10px;
+  margin-left: 25px;
   text-align: justify;
-  color:#ebebeb;
+  color: #ebebeb;
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;

@@ -9,9 +9,9 @@
           :key="'row' + row + column"
         >
           <bookable-list-item
-            :item-title="bookable.title"
-            :item-description="bookable.description"
-            :price="1000"
+            :title="bookable.title"
+            :description="bookable.description"
+            :price="bookable.id"
           ></bookable-list-item>
         </div>
         <div v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p"></div>

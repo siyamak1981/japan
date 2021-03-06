@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="app">
    <Index></Index>
     </div>
 </body>
@@ -29,5 +29,7 @@
 <style>
     body{
         background:#111;
+
     }
+
 </style>

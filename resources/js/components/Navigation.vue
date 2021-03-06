@@ -1,12 +1,8 @@
 <template>
-  <div class="container-fluid" id="navigation">
-    <div class="row">
-      <div class="col-12">
-        <div class="navbar">
-          <input type="search" name="search" id="search" placeholder=" Search ..." />
-          <i class="fas fa-search"></i>
-        </div>
-      </div>
+  <div id="navigation">
+    <div class="navbar">
+      <input type="search" name="search" id="search" placeholder=" Search ..." />
+      <i class="fas fa-search"></i>
     </div>
   </div>
 </template>
@@ -23,7 +19,7 @@ export default {
 
 <style>
 #navigation {
-  margin-left: 75px;
+
   background: #000;
   border-bottom: 1px solid #610116;
   height: 60px;
@@ -32,19 +28,18 @@ export default {
   float: right;
 }
 .navbar #search {
-  position: absolute;
-  right: 250px;
   background: #ebebeb;
   padding: 5px;
+  margin-right: 100px;
   border: 2px solid #610116;
   border-radius: 50px;
   color: #000;
-  color: #000;
+  margin-top: 15px;
 }
 .navbar i {
-  position: relative;
-  color: #fa1e4e;
-  right: 252px;
-  padding: 6px;
+position: absolute;
+    color: #fa1e4e;
+    right: 111px;
+    top: 23px;
 }
 </style>
