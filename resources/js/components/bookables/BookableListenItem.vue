@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div class="cart-body">
-      <div class="card-title">{{title}}</div>
+      <router-link :to="{ name:'bookable', params:{id} }">
+        <div class="card-title" :class="{'text-underline':isActive}">{{title}}</div>
+      </router-link>
       <div class="card-text">{{description}}</div>
     </div>
   </div>
@@ -11,7 +13,9 @@
 export default {
   props: { title: String, description: String, id: Number },
   data() {
-    return {};
+    return {
+      isActive:true
+    };
   },
 };
 </script>
@@ -30,4 +34,10 @@ export default {
   height: 150px;
   overflow: auto;
 }
+.card-title{
+  margin-bottom:10px;
+  color:rgb(16, 190, 147);
+ 
+}
+
 </style>

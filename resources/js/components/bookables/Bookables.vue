@@ -65,7 +65,7 @@ export default {
         // console.log("error)",error);
       });
 
-    const poing = axios
+    axios
       .get("bookables")
       .then((response) => {
         this.bookables = response.data.bookables;
