@@ -9,15 +9,14 @@
 </template>
 
 <script>
-import SideBar from "../SideBar.vue";
-import Navigation from "../Navigation.vue";
-// import Content from "../Content.vue";
+import SideBar from "./components/SideBar.vue";
+import Navigation from "./components/Navigation.vue";
+
 
 export default {
   components: {
     sidebar: SideBar,
     navigation: Navigation,
-    // content:Content
   },
 };
 var _hmt = _hmt || [];

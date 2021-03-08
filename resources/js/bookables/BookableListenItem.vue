@@ -2,7 +2,7 @@
   <div class="card">
     <div class="cart-body">
       <router-link :to="{ name:'bookable', params:{id} }">
-        <div class="card-title" :class="{'text-underline':isActive}">{{title}}</div>
+        <div class="card-title">{{title}}</div>
       </router-link>
       <div class="card-text">{{description}}</div>
     </div>
@@ -14,7 +14,7 @@ export default {
   props: { title: String, description: String, id: Number },
   data() {
     return {
-      isActive:true
+     
     };
   },
 };

@@ -11,7 +11,7 @@
           <bookable-list-item
             :title="bookable.title"
             :description="bookable.description"
-            :price="bookable.id"
+            :id="bookable.id"
           ></bookable-list-item>
         </div>
         <div v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p"></div>
@@ -51,25 +51,11 @@ export default {
   },
   created() {
     this.loading = true;
-    const p = new Promise((resolve, reject) => {
-      // console.log(resolve);
-      // console.log(reject);
-      setTimeout(() => {
-        resolve("hello");
-      }, 3000);
-    })
-      .then((response) => {
-        // console.log(response)
-      })
-      .catch((error) => {
-        // console.log("error)",error);
-      });
-
     axios
-      .get("bookables")
+      .get("/api/bookables/")
       .then((response) => {
-        this.bookables = response.data.bookables;
-        console.log(this.bookables);
+        console.log(response)
+        this.bookables = response.data.data
         this.loading = false;
       })
       .catch((error) => {

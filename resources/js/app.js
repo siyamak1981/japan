@@ -7,7 +7,6 @@ import Index from './Index';
 Vue.use(VueRouter);
 
 import axios from "axios";
-axios.defaults.baseURL = "api/"
 window.axios = axios;
 
 
