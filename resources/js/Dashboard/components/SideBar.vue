@@ -77,7 +77,6 @@ export default {
 }
 .control {
   display: flex;
-  justify-content: center;
   align-items: center;
   border-bottom: 1px solid #610116;
   margin-bottom: 13px;
@@ -89,6 +88,7 @@ export default {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   margin-bottom: 20px;
+  margin-left:22px;
 }
 .logo-img {
   width: 100%;

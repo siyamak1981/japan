@@ -2222,6 +2222,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      from: null,
+      to: null,
+      loading: false,
+      errors: null,
+      status: null
+    };
+  },
+  methods: {
+    check: function check() {
+      var _this = this;
+
+      this.loading = true;
+      this.errors = null;
+      axios.get("/api/bookables/".concat(this.$route.params.id, "/availability?from=").concat(this.from, "&to=").concat(this.to)).then(function (response) {
+        _this.status = response.status;
+      })["catch"](function (error) {
+        if (422 == error.response.status) {
+          _this.errors = error.response.data.errors;
+        }
+
+        _this.status = error.response.status;
+      }).then(function () {
+        _this.loading = false;
+      });
+    },
+    errorFor: function errorFor(field) {
+      return this.hasErrors && this.errors[field] ? this.errors[field] : null;
+    }
+  },
+  computed: {
+    hasErrors: function hasErrors() {
+      return 422 == this.status && this.errors != null;
+    },
+    hasAvailability: function hasAvailability() {
+      return 200 == this.status;
+    },
+    noAvailability: function noAvailability() {
+      return 404 == this.status;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Dashboard/Home.vue?vue&type=style&index=0&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Dashboard/Home.vue?vue&type=style&index=0&lang=css& ***!
@@ -2272,7 +2344,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.container-sidebar[data-v-ceece5c8] {\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 8px;\r\n  z-index: 999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position: fixed;\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  border-left: 1px solid #610116;\r\n  border-right: 1px solid #610116;\n}\n.control[data-v-ceece5c8] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  border-bottom: 1px solid #610116;\r\n  margin-bottom: 13px;\r\n  margin-top: 10px;\n}\n.control i[data-v-ceece5c8] {\r\n  font-size: 20px;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\r\n  margin-bottom: 20px;\n}\n.logo-img[data-v-ceece5c8] {\r\n  width: 100%;\r\n  left: 10px;\r\n  border-bottom: 1px solid #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: center;\n}\n.logo-img span[data-v-ceece5c8] {\r\n  margin-left: 10px;\r\n  font-size: 20px;\n}\n.logo-img img[data-v-ceece5c8] {\r\n  width: 40px;\r\n  margin: 10px;\n}\n.navigation-icons[data-v-ceece5c8] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\r\n  margin-top: 15px;\n}\n.navigation-icons i[data-v-ceece5c8] {\r\n  font-size: 1rem;\r\n  color: #610116;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-ceece5c8]:hover {\r\n  color: #ebebeb;\n}\n.show[data-v-ceece5c8] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-ceece5c8] {\r\n  display: flex;\r\n  color: #ebebeb;\n}\n.show .navigation-icons > i[data-v-ceece5c8]:hover {\r\n  display: flex;\r\n  color: #fa1e4e;\n}\n.show .control > i[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-ceece5c8] {\r\n  margin-top: 20px;\r\n  width: 200px;\n}\n.navigation-link div[data-v-ceece5c8] {\r\n  cursor: pointer;\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 10px;\r\n  padding-bottom: 10px;\n}\n.navigation-link div[data-v-ceece5c8]:hover {\r\n  color: #f7ced7;\n}\ndiv .router-link-active[data-v-ceece5c8] {\r\n  background: #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  width: 100%;\n}\ndiv a[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  text-decoration: none;\n}\ndiv a[data-v-ceece5c8]:hover {\r\n  color: #fa1e4e;\n}\n.fade-enter[data-v-ceece5c8],\r\n.fade-leave-to[data-v-ceece5c8] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-ceece5c8],\r\n.fade-enter-to[data-v-ceece5c8] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-ceece5c8],\r\n.fade-leave-active[data-v-ceece5c8] {\r\n  transition: all 750ms ease-in-out;\n}\r\n", ""]);
+exports.push([module.i, "\n.container-sidebar[data-v-ceece5c8] {\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 8px;\r\n  z-index: 999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position: fixed;\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  border-left: 1px solid #610116;\r\n  border-right: 1px solid #610116;\n}\n.control[data-v-ceece5c8] {\r\n  display: flex;\r\n  align-items: center;\r\n  border-bottom: 1px solid #610116;\r\n  margin-bottom: 13px;\r\n  margin-top: 10px;\n}\n.control i[data-v-ceece5c8] {\r\n  font-size: 20px;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\r\n  margin-bottom: 20px;\r\n  margin-left:22px;\n}\n.logo-img[data-v-ceece5c8] {\r\n  width: 100%;\r\n  left: 10px;\r\n  border-bottom: 1px solid #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: center;\n}\n.logo-img span[data-v-ceece5c8] {\r\n  margin-left: 10px;\r\n  font-size: 20px;\n}\n.logo-img img[data-v-ceece5c8] {\r\n  width: 40px;\r\n  margin: 10px;\n}\n.navigation-icons[data-v-ceece5c8] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\r\n  margin-top: 15px;\n}\n.navigation-icons i[data-v-ceece5c8] {\r\n  font-size: 1rem;\r\n  color: #610116;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-ceece5c8]:hover {\r\n  color: #ebebeb;\n}\n.show[data-v-ceece5c8] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-ceece5c8] {\r\n  display: flex;\r\n  color: #ebebeb;\n}\n.show .navigation-icons > i[data-v-ceece5c8]:hover {\r\n  display: flex;\r\n  color: #fa1e4e;\n}\n.show .control > i[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-ceece5c8] {\r\n  margin-top: 20px;\r\n  width: 200px;\n}\n.navigation-link div[data-v-ceece5c8] {\r\n  cursor: pointer;\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 10px;\r\n  padding-bottom: 10px;\n}\n.navigation-link div[data-v-ceece5c8]:hover {\r\n  color: #f7ced7;\n}\ndiv .router-link-active[data-v-ceece5c8] {\r\n  background: #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  width: 100%;\n}\ndiv a[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  text-decoration: none;\n}\ndiv a[data-v-ceece5c8]:hover {\r\n  color: #fa1e4e;\n}\n.fade-enter[data-v-ceece5c8],\r\n.fade-leave-to[data-v-ceece5c8] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-ceece5c8],\r\n.fade-enter-to[data-v-ceece5c8] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-ceece5c8],\r\n.fade-leave-active[data-v-ceece5c8] {\r\n  transition: all 750ms ease-in-out;\n}\r\n", ""]);
 
 // exports
 
@@ -2348,7 +2420,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.form-group[data-v-4f54e2c7] {\r\n  color: #ebebeb;\n}\ninput[type=\"text\"][data-v-4f54e2c7] {\r\n  display: flex;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  display: block;\n}\n.btn-block[data-v-4f54e2c7] {\r\n  background: rgb(16, 190, 147);\r\n  padding: 7px;\r\n  margin: 10px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border:none\n}\n.btn-block[data-v-4f54e2c7]:hover {\r\n  background-color: #610116;\r\n  color: black;\n}\nlabel[data-v-4f54e2c7] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\r\n", ""]);
+exports.push([module.i, "\n.form-group[data-v-4f54e2c7] {\r\n  color: #ebebeb;\n}\ninput[type=\"text\"][data-v-4f54e2c7] {\r\n  display: flex;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  display: block;\n}\n.btn-block[data-v-4f54e2c7] {\r\n  background: rgb(16, 190, 147);\r\n  padding: 7px;\r\n  margin: 10px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-4f54e2c7]:hover {\r\n  background-color: #610116;\r\n  color: black;\n}\nlabel[data-v-4f54e2c7] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\n.is_invalid[data-v-4f54e2c7]{\r\n  border:3px solid #fa1e4e;\n}\n.invalid-feedback[data-v-4f54e2c7]{\r\n  color:#fa1e4e;\n}\n.text-danger[data-v-4f54e2c7]{\r\n  color:#fa1e4e\n}\n.text-success[data-v-4f54e2c7]{\r\n  color:rgb(16, 190, 147);\n}\r\n", ""]);
 
 // exports
 
@@ -4017,15 +4089,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 form-group" }, [
+  return _c(
+    "div",
+    { staticClass: "col-4 form-group" },
+    [
       _c("span", [_vm._v("Check Availability")]),
+      _vm._v(" "),
+      _vm.noAvailability
+        ? _c("span", { staticClass: "text-danger" }, [_vm._v("(NOT AVALABLE)")])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.hasAvailability
+        ? _c("span", { staticClass: "text-success" }, [_vm._v("(AVAILABLE)")])
+        : _vm._e(),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
@@ -4034,19 +4110,81 @@ var staticRenderFns = [
       _c("label", { attrs: { for: "from" } }, [_vm._v("From:")]),
       _vm._v(" "),
       _c("input", {
-        attrs: { type: "text", name: "from", placeholder: "Start date.." }
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.from,
+            expression: "from"
+          }
+        ],
+        class: [{ is_invalid: this.errorFor("from") }],
+        attrs: { type: "text", name: "from", placeholder: "Start date.." },
+        domProps: { value: _vm.from },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.from = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm._l(this.errorFor("from"), function(error, index) {
+        return _c(
+          "div",
+          { key: "from" + index, staticClass: "invalid-feedback" },
+          [_vm._v(_vm._s(error))]
+        )
       }),
       _vm._v(" "),
       _c("label", { attrs: { for: "from" } }, [_vm._v("To:")]),
       _vm._v(" "),
       _c("input", {
-        attrs: { type: "text", name: "to", placeholder: "end date.." }
+        directives: [
+          { name: "model", rawName: "v-model", value: _vm.to, expression: "to" }
+        ],
+        class: [{ is_invalid: this.errorFor("to") }],
+        attrs: { type: "text", name: "to", placeholder: "end date.." },
+        domProps: { value: _vm.to },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.to = $event.target.value
+          }
+        }
       }),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btn-block" }, [_vm._v("Check!")])
-    ])
-  }
-]
+      _vm._l(this.errorFor("to"), function(error, index) {
+        return _c(
+          "div",
+          { key: "to" + index, staticClass: "invalid-feedback" },
+          [_vm._v(_vm._s(error))]
+        )
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-block",
+          attrs: { disabled: _vm.loading },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.check($event)
+            }
+          }
+        },
+        [_vm._v("Check!")]
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -19950,17 +20088,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Availability_vue_vue_type_template_id_4f54e2c7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Availability.vue?vue&type=template&id=4f54e2c7&scoped=true& */ "./resources/js/bookables/components/Availability.vue?vue&type=template&id=4f54e2c7&scoped=true&");
-/* harmony import */ var _Availability_vue_vue_type_style_index_0_id_4f54e2c7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Availability.vue?vue&type=style&index=0&id=4f54e2c7&scoped=true&lang=css& */ "./resources/js/bookables/components/Availability.vue?vue&type=style&index=0&id=4f54e2c7&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Availability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Availability.vue?vue&type=script&lang=js& */ "./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Availability_vue_vue_type_style_index_0_id_4f54e2c7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Availability.vue?vue&type=style&index=0&id=4f54e2c7&scoped=true&lang=css& */ "./resources/js/bookables/components/Availability.vue?vue&type=style&index=0&id=4f54e2c7&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Availability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Availability_vue_vue_type_template_id_4f54e2c7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Availability_vue_vue_type_template_id_4f54e2c7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -19974,6 +20114,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/bookables/components/Availability.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Availability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Availability.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/bookables/components/Availability.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Availability_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
