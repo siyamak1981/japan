@@ -70,31 +70,32 @@ export default {
   min-height: calc(100vh);
   overflow: hidden;
   position: fixed;
-  background: #000;
-  border-bottom: 1px solid #610116;
-  border-left: 1px solid #610116;
-  border-right: 1px solid #610116;
+  background: #111;
+  border-bottom: 1px solid #ffffff26;
+  border-left: 1px solid #ffffff26;
+  border-right: 1px solid #ffffff26;
 }
 .control {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #610116;
+  border-bottom: 1px solid #ffffff26;
   margin-bottom: 13px;
   margin-top: 10px;
 }
 .control i {
   font-size: 20px;
-  color: #fa1e4e;
+  color: #42b983;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   margin-bottom: 20px;
-  margin-left:22px;
+  margin-left: 22px;
 }
 .logo-img {
   width: 100%;
   left: 10px;
-  border-bottom: 1px solid #610116;
-  color: #ebebeb;
+  border-bottom: 1px solid #ffffff26;
+  color: #eee;
+  text-transform: capitalize;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -118,27 +119,27 @@ export default {
 }
 .navigation-icons i {
   font-size: 1rem;
-  color: #610116;
+  color: #42b983;
   cursor: pointer;
   padding: 20px 0;
   transition: all 0.5s ease-in-out;
 }
 .navigation-icons i:hover {
-  color: #ebebeb;
+  color: #35495e;
 }
 .show {
   width: 220px;
 }
 .show .navigation-icons > i {
   display: flex;
-  color: #ebebeb;
+  color: #35495e;
 }
 .show .navigation-icons > i:hover {
   display: flex;
-  color: #fa1e4e;
+  color: #42b983;
 }
 .show .control > i {
-  color: #ebebeb;
+  color: #35495e;
   transform: rotateZ(-180deg);
 }
 .navigation-link {
@@ -152,26 +153,34 @@ export default {
   justify-content: center;
   margin-bottom: 10px;
   padding-bottom: 10px;
+  
 }
 .navigation-link div:hover {
-  color: #f7ced7;
+  /* background: #42b983; */
+
 }
 
 div .router-link-active {
-  background: #610116;
-  color: #ebebeb;
+  background: #35495e;
+  color: #eee;
   display: flex;
   justify-content: center;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
 }
+div .router-link-active:hover {
+  background: #42b983;
+  color:#111;
+  
+}
 div a {
-  color: #ebebeb;
+  color: #eee;
   text-decoration: none;
 }
 div a:hover {
-  color: #fa1e4e;
+  color: #eee;
+
 }
 
 .fade-enter,

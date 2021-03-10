@@ -79,7 +79,7 @@ input[type="text"] {
 }
 
 .btn-block {
-  background: rgb(16, 190, 147);
+  background: #42b983;
   padding: 7px;
   margin: 10px;
   border-radius: 5px;
@@ -91,8 +91,8 @@ input[type="text"] {
   border: none;
 }
 .btn-block:hover {
-  background-color: #610116;
-  color: black;
+  background-color: #35495e;
+  color: #ebebbe;
 }
 label {
   text-transform: uppercase;
@@ -109,6 +109,6 @@ label {
   color:#fa1e4e
 }
 .text-success{
-  color:rgb(16, 190, 147);
+  color:#42b983;
 }
 </style>

@@ -21,7 +21,7 @@ export default {
 </script>
 <style scoped>
 .card {
-  border: 1px solid #fa1e4e;
+  border: 1px solid #ffffff26;
   padding: 20px;
   margin-left: 25px;
   text-align: justify;
@@ -36,7 +36,8 @@ export default {
 }
 .card-title{
   margin-bottom:10px;
-  color:rgb(16, 190, 147);
+  color:#42b983;
+
  
 }
 

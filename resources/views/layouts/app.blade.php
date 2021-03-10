@@ -28,7 +28,7 @@
 </html>
 <style>
     body{
-        background:#111;
+        background-image:url('../img/dark_wall.webp');
 
     }
 

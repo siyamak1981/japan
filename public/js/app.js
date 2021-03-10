@@ -1929,15 +1929,6 @@ __webpack_require__.r(__webpack_exports__);
   }
 });
 
-var _hmt = _hmt || [];
-
-(function () {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?73c27e26f610eb3c9f3feb0c75b03925";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-
 /***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Dashboard/components/Navigation.vue?vue&type=script&lang=js&":
@@ -2050,6 +2041,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Availability_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Availability.vue */ "./resources/js/bookables/components/Availability.vue");
+/* harmony import */ var _components_ReviewList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ReviewList.vue */ "./resources/js/bookables/components/ReviewList.vue");
+//
 //
 //
 //
@@ -2091,6 +2084,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2099,7 +2093,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Availability: _components_Availability_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Availability: _components_Availability_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ReviewList: _components_ReviewList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   created: function created() {
     var _this = this;
@@ -2306,7 +2301,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n* {\r\n  margin: 0%;\r\n  box-sizing: border-box;\n}\n.row:after {\r\n  content: \"\";\r\n  clear: both;\r\n  display: block;\n}\n[class*=\"col-\"] {\r\n  float: left;\r\n  padding: 15px;\n}\r\n/* For mobile phones: */\n[class*=\"col-\"] {\r\n  width: 100%;\n}\n@media only screen and (min-width: 480px) {\r\n  /* For tablets: */\n.col-m-1 {\r\n    width: 8.33%;\n}\n.col-m-2 {\r\n    width: 16.66%;\n}\n.col-m-3 {\r\n    width: 25%;\n}\n.col-m-4 {\r\n    width: 33.33%;\n}\n.col-m-5 {\r\n    width: 41.66%;\n}\n.col-m-6 {\r\n    width: 50%;\n}\n.col-m-7 {\r\n    width: 58.33%;\n}\n.col-m-8 {\r\n    width: 66.66%;\n}\n.col-m-9 {\r\n    width: 75%;\n}\n.col-m-10 {\r\n    width: 83.33%;\n}\n.col-m-11 {\r\n    width: 91.66%;\n}\n.col-m-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\n@media only screen and (min-width: 768px) {\r\n  /* For desktop: */\n.col-1 {\r\n    width: 8.33%;\n}\n.col-2 {\r\n    width: 16.66%;\n}\n.col-3 {\r\n    width: 25%;\n}\n.col-4 {\r\n    width: 33.33%;\n}\n.col-5 {\r\n    width: 41.66%;\n}\n.col-6 {\r\n    width: 50%;\n}\n.col-7 {\r\n    width: 58.33%;\n}\n.col-8 {\r\n    width: 66.66%;\n}\n.col-9 {\r\n    width: 75%;\n}\n.col-10 {\r\n    width: 83.33%;\n}\n.col-11 {\r\n    width: 91.66%;\n}\n.col-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n* {\r\n  margin: 0%;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\n}\nbody{\r\n    color:#ebebeb;\n}\n.row:after {\r\n  content: \"\";\r\n  clear: both;\r\n  display: block;\n}\n[class*=\"col-\"] {\r\n  float: left;\r\n  padding: 15px;\n}\r\n/* For mobile phones: */\n[class*=\"col-\"] {\r\n  width: 100%;\n}\n@media only screen and (min-width: 480px) {\r\n  /* For tablets: */\n.col-m-1 {\r\n    width: 8.33%;\n}\n.col-m-2 {\r\n    width: 16.66%;\n}\n.col-m-3 {\r\n    width: 25%;\n}\n.col-m-4 {\r\n    width: 33.33%;\n}\n.col-m-5 {\r\n    width: 41.66%;\n}\n.col-m-6 {\r\n    width: 50%;\n}\n.col-m-7 {\r\n    width: 58.33%;\n}\n.col-m-8 {\r\n    width: 66.66%;\n}\n.col-m-9 {\r\n    width: 75%;\n}\n.col-m-10 {\r\n    width: 83.33%;\n}\n.col-m-11 {\r\n    width: 91.66%;\n}\n.col-m-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\n@media only screen and (min-width: 768px) {\r\n  /* For desktop: */\n.col-1 {\r\n    width: 8.33%;\n}\n.col-2 {\r\n    width: 16.66%;\n}\n.col-3 {\r\n    width: 25%;\n}\n.col-4 {\r\n    width: 33.33%;\n}\n.col-5 {\r\n    width: 41.66%;\n}\n.col-6 {\r\n    width: 50%;\n}\n.col-7 {\r\n    width: 58.33%;\n}\n.col-8 {\r\n    width: 66.66%;\n}\n.col-9 {\r\n    width: 75%;\n}\n.col-10 {\r\n    width: 83.33%;\n}\n.col-11 {\r\n    width: 91.66%;\n}\n.col-12 {\r\n    width: 100%;\n}\n.distance-sidbar {\r\n    margin-left: 50px;\r\n    margin-top: 50px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -2325,7 +2320,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#navigation {\r\n\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  height: 60px;\n}\n.navbar {\r\n  float: right;\n}\n.navbar #search {\r\n  background: #ebebeb;\r\n  padding: 5px;\r\n  margin-right: 100px;\r\n  border: 2px solid #610116;\r\n  border-radius: 50px;\r\n  color: #000;\r\n  margin-top: 15px;\n}\n.navbar i {\r\nposition: absolute;\r\n    color: #fa1e4e;\r\n    right: 111px;\r\n    top: 23px;\n}\r\n", ""]);
+exports.push([module.i, "\n#navigation {\r\n\r\n  background: #111;\r\n  border-bottom: 1px solid #ffffff26;\r\n  height: 60px;\n}\n.navbar {\r\n  float: right;\n}\n.navbar #search {\r\n  background: #eee;\r\n  padding: 5px;\r\n  margin-right: 100px;\r\n  border: 2px solid #ffffff26;\r\n  border-radius: 50px;\r\n  color: #000;\r\n  margin-top: 15px;\n}\n.navbar i {\r\nposition: absolute;\r\n    color: #35495e;\r\n    right: 111px;\r\n    top: 23px;\n}\r\n", ""]);
 
 // exports
 
@@ -2344,7 +2339,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.container-sidebar[data-v-ceece5c8] {\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 8px;\r\n  z-index: 999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position: fixed;\r\n  background: #000;\r\n  border-bottom: 1px solid #610116;\r\n  border-left: 1px solid #610116;\r\n  border-right: 1px solid #610116;\n}\n.control[data-v-ceece5c8] {\r\n  display: flex;\r\n  align-items: center;\r\n  border-bottom: 1px solid #610116;\r\n  margin-bottom: 13px;\r\n  margin-top: 10px;\n}\n.control i[data-v-ceece5c8] {\r\n  font-size: 20px;\r\n  color: #fa1e4e;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\r\n  margin-bottom: 20px;\r\n  margin-left:22px;\n}\n.logo-img[data-v-ceece5c8] {\r\n  width: 100%;\r\n  left: 10px;\r\n  border-bottom: 1px solid #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: center;\n}\n.logo-img span[data-v-ceece5c8] {\r\n  margin-left: 10px;\r\n  font-size: 20px;\n}\n.logo-img img[data-v-ceece5c8] {\r\n  width: 40px;\r\n  margin: 10px;\n}\n.navigation-icons[data-v-ceece5c8] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\r\n  margin-top: 15px;\n}\n.navigation-icons i[data-v-ceece5c8] {\r\n  font-size: 1rem;\r\n  color: #610116;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-ceece5c8]:hover {\r\n  color: #ebebeb;\n}\n.show[data-v-ceece5c8] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-ceece5c8] {\r\n  display: flex;\r\n  color: #ebebeb;\n}\n.show .navigation-icons > i[data-v-ceece5c8]:hover {\r\n  display: flex;\r\n  color: #fa1e4e;\n}\n.show .control > i[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-ceece5c8] {\r\n  margin-top: 20px;\r\n  width: 200px;\n}\n.navigation-link div[data-v-ceece5c8] {\r\n  cursor: pointer;\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 10px;\r\n  padding-bottom: 10px;\n}\n.navigation-link div[data-v-ceece5c8]:hover {\r\n  color: #f7ced7;\n}\ndiv .router-link-active[data-v-ceece5c8] {\r\n  background: #610116;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  width: 100%;\n}\ndiv a[data-v-ceece5c8] {\r\n  color: #ebebeb;\r\n  text-decoration: none;\n}\ndiv a[data-v-ceece5c8]:hover {\r\n  color: #fa1e4e;\n}\n.fade-enter[data-v-ceece5c8],\r\n.fade-leave-to[data-v-ceece5c8] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-ceece5c8],\r\n.fade-enter-to[data-v-ceece5c8] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-ceece5c8],\r\n.fade-leave-active[data-v-ceece5c8] {\r\n  transition: all 750ms ease-in-out;\n}\r\n", ""]);
+exports.push([module.i, "\n.container-sidebar[data-v-ceece5c8] {\r\n  top: 0%;\r\n  left: 0%;\r\n  width: 80px;\r\n  padding: 8px;\r\n  z-index: 999;\r\n  transition: all 0.5s ease-in-out;\r\n  min-height: calc(100vh);\r\n  overflow: hidden;\r\n  position: fixed;\r\n  background: #111;\r\n  border-bottom: 1px solid #ffffff26;\r\n  border-left: 1px solid #ffffff26;\r\n  border-right: 1px solid #ffffff26;\n}\n.control[data-v-ceece5c8] {\r\n  display: flex;\r\n  align-items: center;\r\n  border-bottom: 1px solid #ffffff26;\r\n  margin-bottom: 13px;\r\n  margin-top: 10px;\n}\n.control i[data-v-ceece5c8] {\r\n  font-size: 20px;\r\n  color: #42b983;\r\n  cursor: pointer;\r\n  transition: all 0.5s ease-in-out;\r\n  margin-bottom: 20px;\r\n  margin-left: 22px;\n}\n.logo-img[data-v-ceece5c8] {\r\n  width: 100%;\r\n  left: 10px;\r\n  border-bottom: 1px solid #ffffff26;\r\n  color: #eee;\r\n  text-transform: capitalize;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: center;\n}\n.logo-img span[data-v-ceece5c8] {\r\n  margin-left: 10px;\r\n  font-size: 20px;\n}\n.logo-img img[data-v-ceece5c8] {\r\n  width: 40px;\r\n  margin: 10px;\n}\n.navigation-icons[data-v-ceece5c8] {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 50px;\r\n  float: left;\r\n  flex-direction: column;\r\n  margin-top: 15px;\n}\n.navigation-icons i[data-v-ceece5c8] {\r\n  font-size: 1rem;\r\n  color: #42b983;\r\n  cursor: pointer;\r\n  padding: 20px 0;\r\n  transition: all 0.5s ease-in-out;\n}\n.navigation-icons i[data-v-ceece5c8]:hover {\r\n  color: #35495e;\n}\n.show[data-v-ceece5c8] {\r\n  width: 220px;\n}\n.show .navigation-icons > i[data-v-ceece5c8] {\r\n  display: flex;\r\n  color: #35495e;\n}\n.show .navigation-icons > i[data-v-ceece5c8]:hover {\r\n  display: flex;\r\n  color: #42b983;\n}\n.show .control > i[data-v-ceece5c8] {\r\n  color: #35495e;\r\n  transform: rotateZ(-180deg);\n}\n.navigation-link[data-v-ceece5c8] {\r\n  margin-top: 20px;\r\n  width: 200px;\n}\n.navigation-link div[data-v-ceece5c8] {\r\n  cursor: pointer;\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 10px;\r\n  padding-bottom: 10px;\n}\n.navigation-link div[data-v-ceece5c8]:hover {\r\n  /* background: #42b983; */\n}\ndiv .router-link-active[data-v-ceece5c8] {\r\n  background: #35495e;\r\n  color: #eee;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 10px;\r\n  padding-bottom: 10px;\r\n  width: 100%;\n}\ndiv .router-link-active[data-v-ceece5c8]:hover {\r\n  background: #42b983;\r\n  color:#111;\n}\ndiv a[data-v-ceece5c8] {\r\n  color: #eee;\r\n  text-decoration: none;\n}\ndiv a[data-v-ceece5c8]:hover {\r\n  color: #eee;\n}\n.fade-enter[data-v-ceece5c8],\r\n.fade-leave-to[data-v-ceece5c8] {\r\n  opacity: 0;\n}\n.fade-leave[data-v-ceece5c8],\r\n.fade-enter-to[data-v-ceece5c8] {\r\n  opacity: 1;\n}\n.fade-enter-active[data-v-ceece5c8],\r\n.fade-leave-active[data-v-ceece5c8] {\r\n  transition: all 750ms ease-in-out;\n}\r\n", ""]);
 
 // exports
 
@@ -2363,7 +2358,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ndiv .row[data-v-566a2800] {\r\n  margin-left: 100px;\r\n  margin-right: 100px;\n}\n.card[data-v-566a2800] {\r\n  border: 1px solid #610116;\r\n  width: 100%;\r\n  height: auto;\r\n  overflow: auto;\r\n  padding: 10px;\n}\n.card-header[data-v-566a2800] {\r\n  border-bottom: 1px solid #610116;\r\n  width: 100%;\r\n  padding-bottom: 20px;\r\n  text-align: center;\r\n  color: #ebebeb;\n}\n.card-body[data-v-566a2800] {\r\n  color: #ebebeb;\r\n  padding: 40px 10px;\n}\r\n", ""]);
+exports.push([module.i, "\ndiv .row[data-v-566a2800] {\r\n  margin-left: 100px;\r\n  margin-right: 100px;\n}\n.card[data-v-566a2800] {\r\n  border: 1px solid #ffffff26;\r\n  width: 100%;\r\n  height: auto;\r\n  overflow: auto;\r\n  padding: 10px;\n}\n.card-header[data-v-566a2800] {\r\n  border-bottom: 1px solid #ffffff26;\r\n  width: 100%;\r\n  padding-bottom: 20px;\r\n  text-align: center;\r\n  color: #eee;\n}\n.card-body[data-v-566a2800] {\r\n  color: #eee;\r\n  padding: 40px 10px;\n}\r\n", ""]);
 
 // exports
 
@@ -2382,7 +2377,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card[data-v-08e872cc] {\r\n  border: 1px solid #fa1e4e;\r\n  padding: 20px;\r\n  margin-left: 25px;\r\n  text-align: justify;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: stretch;\r\n  justify-content: center;\r\n  align-content: stretch;\r\n  height: 150px;\r\n  overflow: auto;\n}\n.card-title[data-v-08e872cc]{\r\n  margin-bottom:10px;\r\n  color:rgb(16, 190, 147);\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.card[data-v-08e872cc] {\r\n  border: 1px solid #ffffff26;\r\n  padding: 20px;\r\n  margin-left: 25px;\r\n  text-align: justify;\r\n  color: #ebebeb;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n  align-items: stretch;\r\n  justify-content: center;\r\n  align-content: stretch;\r\n  height: 150px;\r\n  overflow: auto;\n}\n.card-title[data-v-08e872cc]{\r\n  margin-bottom:10px;\r\n  color:#42b983;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -2420,7 +2415,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.form-group[data-v-4f54e2c7] {\r\n  color: #ebebeb;\n}\ninput[type=\"text\"][data-v-4f54e2c7] {\r\n  display: flex;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  display: block;\n}\n.btn-block[data-v-4f54e2c7] {\r\n  background: rgb(16, 190, 147);\r\n  padding: 7px;\r\n  margin: 10px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-4f54e2c7]:hover {\r\n  background-color: #610116;\r\n  color: black;\n}\nlabel[data-v-4f54e2c7] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\n.is_invalid[data-v-4f54e2c7]{\r\n  border:3px solid #fa1e4e;\n}\n.invalid-feedback[data-v-4f54e2c7]{\r\n  color:#fa1e4e;\n}\n.text-danger[data-v-4f54e2c7]{\r\n  color:#fa1e4e\n}\n.text-success[data-v-4f54e2c7]{\r\n  color:rgb(16, 190, 147);\n}\r\n", ""]);
+exports.push([module.i, "\n.form-group[data-v-4f54e2c7] {\r\n  color: #ebebeb;\n}\ninput[type=\"text\"][data-v-4f54e2c7] {\r\n  display: flex;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  display: block;\n}\n.btn-block[data-v-4f54e2c7] {\r\n  background: #42b983;\r\n  padding: 7px;\r\n  margin: 10px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-4f54e2c7]:hover {\r\n  background-color: #35495e;\r\n  color: #ebebbe;\n}\nlabel[data-v-4f54e2c7] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\n.is_invalid[data-v-4f54e2c7]{\r\n  border:3px solid #fa1e4e;\n}\n.invalid-feedback[data-v-4f54e2c7]{\r\n  color:#fa1e4e;\n}\n.text-danger[data-v-4f54e2c7]{\r\n  color:#fa1e4e\n}\n.text-success[data-v-4f54e2c7]{\r\n  color:#42b983;\n}\r\n", ""]);
 
 // exports
 
@@ -3941,17 +3936,24 @@ var render = function() {
       ? _c(
           "div",
           [
-            _c("div", { staticClass: "col-8" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v(_vm._s(_vm.bookable.title))
+            _c(
+              "div",
+              { staticClass: "col-8" },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-header" }, [
+                    _vm._v(_vm._s(_vm.bookable.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _vm._v(_vm._s(_vm.bookable.description))
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _vm._v(_vm._s(_vm.bookable.description))
-                ])
-              ])
-            ]),
+                _c("review-list")
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("Availability")
           ],
@@ -4183,6 +4185,30 @@ var render = function() {
     ],
     2
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("review list")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20160,6 +20186,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Availability_vue_vue_type_template_id_4f54e2c7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Availability_vue_vue_type_template_id_4f54e2c7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/bookables/components/ReviewList.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/bookables/components/ReviewList.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReviewList.vue?vue&type=template&id=34b2a5fc& */ "./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/bookables/components/ReviewList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ReviewList.vue?vue&type=template&id=34b2a5fc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/bookables/components/ReviewList.vue?vue&type=template&id=34b2a5fc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewList_vue_vue_type_template_id_34b2a5fc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

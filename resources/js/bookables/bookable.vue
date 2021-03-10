@@ -6,6 +6,7 @@
           <div class="card-header">{{bookable.title}}</div>
           <div class="card-body">{{bookable.description}}</div>
         </div>
+        <review-list></review-list>
       </div>
       <Availability />
     </div>
@@ -20,26 +21,27 @@ div .row {
   
 }
 .card {
-  border: 1px solid #610116;
+  border: 1px solid #ffffff26;
   width: 100%;
   height: auto;
   overflow: auto;
   padding: 10px;
 }
 .card-header {
-  border-bottom: 1px solid #610116;
+  border-bottom: 1px solid #ffffff26;
   width: 100%;
   padding-bottom: 20px;
   text-align: center;
-  color: #ebebeb;
+  color: #eee;
 }
 .card-body {
-  color: #ebebeb;
+  color: #eee;
   padding: 40px 10px;
 }
 </style>
 <script>
 import Availability from "./components/Availability.vue";
+import ReviewList from "./components/ReviewList.vue";
 export default {
   data() {
     return {
@@ -49,6 +51,7 @@ export default {
   },
   components: {
     Availability,
+    ReviewList
   },
   created() {
     this.loading = true;
