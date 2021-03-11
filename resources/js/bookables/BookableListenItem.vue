@@ -37,8 +37,7 @@ export default {
 .card-title{
   margin-bottom:10px;
   color:#42b983;
-
- 
 }
+
 
 </style>

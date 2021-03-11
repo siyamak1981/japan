@@ -25,7 +25,11 @@ export default {
 * {
   margin: 0%;
   box-sizing: border-box;
-  text-decoration: none;
+
+}
+a {
+    text-decoration: none;
+    color: #eee;
 }
 body{
     color:#ebebeb; 
@@ -85,7 +89,7 @@ body{
   }
   .distance-sidbar {
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -128,7 +132,7 @@ body{
   }
   .distance-sidbar {
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 }
 </style>

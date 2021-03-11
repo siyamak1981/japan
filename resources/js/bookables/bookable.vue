@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div v-if="!loading">
-      <div class="col-8">
+      <div class="col-m-8">
         <div class="card">
           <div class="card-header">{{bookable.title}}</div>
           <div class="card-body">{{bookable.description}}</div>
@@ -37,6 +37,12 @@ div .row {
 .card-body {
   color: #eee;
   padding: 40px 10px;
+}
+@media only screen and (max-width: 680px) {
+div .row {
+  margin:50px 10px 0 72px
+  
+}
 }
 </style>
 <script>

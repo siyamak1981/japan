@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Bookable extends Model
 {
@@ -11,7 +12,12 @@ class Bookable extends Model
         return $this->hasMany(Booking::class);
     }
 
-    public function availableFor($from, $to):bool
+    public function reviews()
+    {
+        return $this->HasMany(Review::class);
+    }
+
+    public function availableFor($from, $to): bool
     {
         return 0 == $this->bookings()->betweenDates($from, $to)->count();
     }
