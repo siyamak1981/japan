@@ -1,6 +1,6 @@
 import Home from "./Dashboard/Home.vue";
 import Bookables from "./bookables/Bookables.vue";
-import Bookable from "./bookables/Bookable.vue";
+import Bookable from "./bookable/Bookable.vue";
 import VueRouter from "vue-router";
 
 

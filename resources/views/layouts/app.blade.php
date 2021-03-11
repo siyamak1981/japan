@@ -28,7 +28,8 @@
 </html>
 <style>
     body{
-        background-image:url('../img/dark_wall.webp');
+        background-image:url('../img/dark_wall.webp');   
+        background-attachment: fixed;
 
     }
 

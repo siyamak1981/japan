@@ -4,7 +4,7 @@
     <div v-else>
       <div class="row" v-for="row in rows" :key="'row' + row">
         <div
-          class="col-4"
+          class="col-4 bookablelist"
           v-for="(bookable, column) in bookableInRow(row)"
           :key="'row' + row + column"
         >
@@ -21,7 +21,7 @@
 </template>
     
 <script>
-import BookableListenItem from "./BookableListenItem.vue";
+import BookableListenItem from "./components/BookableListenItem.vue";
 export default {
   components: {
     "bookable-list-item": BookableListenItem,
@@ -54,8 +54,8 @@ export default {
     axios
       .get("/api/bookables/")
       .then((response) => {
-        console.log(response)
-        this.bookables = response.data.data
+        console.log(response);
+        this.bookables = response.data.data;
         this.loading = false;
       })
       .catch((error) => {
@@ -70,5 +70,10 @@ div .loading {
   text-align: center;
   margin-top: 50px;
   font-size: 2rem;
+}
+@media only screen and (max-width: 680px) {
+  .row {
+    margin: 60px 0 0 30px;
+  }
 }
 </style>
