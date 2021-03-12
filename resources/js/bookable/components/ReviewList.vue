@@ -5,10 +5,8 @@
     <div v-else>
       <div class="row review" v-for="(review, index) in reviews" :key="index">
         <div class="col-m-8">Siyamak Abasnezhad</div>
-        <div class="col-m-4">{{ review.rating}}
-          <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i> 
+        <div class="col-m-4">
+          <star-rating :rating="review.rating" />
         </div>
         <div class="col-m-12">{{review.created_at|fromNow}}</div>
         <div class="col-m-12">{{review.content}}</div>
@@ -28,10 +26,10 @@
 <script>
 export default {
   props: {
-    bookableId:{
-      type:[String, Number],
+    bookableId: {
+      type: [String, Number],
       required: true,
-    }
+    },
   },
 
   data() {
