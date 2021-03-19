@@ -38,7 +38,9 @@
 </template>
 <script>
 import {is422 } from "./../../shared/utils/response";
+import validationErrors from "./../../shared/mixins/validationErrors";
 export default {
+  mixins:[validationErrors],
   props: {
     bookableId: {
       type: [String, Number],
@@ -51,7 +53,6 @@ export default {
       from: null,
       to: null,
       loading: false,
-      errors: null,
       status: null,
     };
   },
@@ -76,9 +77,7 @@ export default {
           this.loading = false;
         });
     },
-    errorFor(field) {
-      return this.hasErrors && this.errors[field] ? this.errors[field] : null;
-    },
+
   },
   computed: {
     hasErrors() {
