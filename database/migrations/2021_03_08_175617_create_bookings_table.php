@@ -15,6 +15,7 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->uuid('review_key');
             $table->date('from');
             $table->date('to');
             $table->unsignedBigInteger('bookable_id')->index();

@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .fa-star{
     color: yellow;
-    font-size:1.8rem;
+    font-size:1.2rem;
     padding-right:10px;
 }
 </style>

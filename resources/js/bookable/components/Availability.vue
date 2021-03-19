@@ -13,11 +13,12 @@
       :class="[{'is_invalid':this.errorFor('from')}]"
       placeholder="Start date.."
     />
-    <div
+      <v-errors :errors="errorFor('from')"></v-errors>
+    <!-- <div
       class="invalid-feedback"
       v-for="(error, index) in this.errorFor('from')"
       :key="`from` + index"
-    >{{ error }}</div>
+    >{{ error }}</div> -->
     <label for="from">To:</label>
     <input
       type="text"
@@ -26,15 +27,17 @@
       :class="[{'is_invalid':this.errorFor('to')}]"
       placeholder="end date.."
     />
-    <div
+      <v-errors :errors="errorFor('to')"></v-errors>
+    <!-- <div
       class="invalid-feedback"
       v-for="(error, index) in this.errorFor('to')"
       :key="`to` + index"
-    >{{ error }}</div>
+    >{{ error }}</div> -->
     <button class="btn btn-block" @click.prevent="check" :disabled="loading">Check!</button>
   </div>
 </template>
 <script>
+import {is422 } from "./../../shared/utils/response";
 export default {
   props: {
     bookableId: {
@@ -64,7 +67,7 @@ export default {
           this.status = response.status;
         })
         .catch((error) => {
-          if (422 == error.response.status) {
+          if (is422(error)) {
             this.errors = error.response.data.errors;
           }
           this.status = error.response.status;
