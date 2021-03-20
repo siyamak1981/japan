@@ -13,12 +13,8 @@
       :class="[{'is_invalid':this.errorFor('from')}]"
       placeholder="Start date.."
     />
-      <v-errors :errors="errorFor('from')"></v-errors>
-    <!-- <div
-      class="invalid-feedback"
-      v-for="(error, index) in this.errorFor('from')"
-      :key="`from` + index"
-    >{{ error }}</div> -->
+    <v-errors :errors="errorFor('from')"></v-errors>
+
     <label for="from">To:</label>
     <input
       type="text"
@@ -27,20 +23,16 @@
       :class="[{'is_invalid':this.errorFor('to')}]"
       placeholder="end date.."
     />
-      <v-errors :errors="errorFor('to')"></v-errors>
-    <!-- <div
-      class="invalid-feedback"
-      v-for="(error, index) in this.errorFor('to')"
-      :key="`to` + index"
-    >{{ error }}</div> -->
+    <v-errors :errors="errorFor('to')"></v-errors>
+
     <button class="btn btn-block" @click.prevent="check" :disabled="loading">Check!</button>
   </div>
 </template>
 <script>
-import {is422 } from "./../../shared/utils/response";
+import { is422 } from "./../../shared/utils/response";
 import validationErrors from "./../../shared/mixins/validationErrors";
 export default {
-  mixins:[validationErrors],
+  mixins: [validationErrors],
   props: {
     bookableId: {
       type: [String, Number],
@@ -50,8 +42,8 @@ export default {
   },
   data() {
     return {
-      from: null,
-      to: null,
+      from: this.$store.state.lastSearch.from,
+      to: this.$store.state.lastSearch.to,
       loading: false,
       status: null,
     };
@@ -60,6 +52,10 @@ export default {
     check() {
       this.loading = true;
       this.errors = null;
+      this.$store.dispatch("setLastSearch", {
+        from: this.from,
+        to: this.to,
+      });
       axios
         .get(
           `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
@@ -77,7 +73,6 @@ export default {
           this.loading = false;
         });
     },
-
   },
   computed: {
     hasErrors() {
