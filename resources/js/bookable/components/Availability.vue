@@ -1,8 +1,10 @@
 <template>
   <div class="col-4 form-group">
     <span>Check Availability</span>
-    <span v-if="noAvailability" class="text-danger">(NOT AVALABLE)</span>
-    <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
+    <transition>
+      <span v-if="noAvailability" class="text-danger">(NOT AVALABLE)</span>
+      <span v-if="hasAvailability" class="text-success">(AVAILABLE)</span>
+    </transition>
     <br />
     <br />
     <label for="from">From:</label>
@@ -13,12 +15,8 @@
       :class="[{'is_invalid':this.errorFor('from')}]"
       placeholder="Start date.."
     />
-      <v-errors :errors="errorFor('from')"></v-errors>
-    <!-- <div
-      class="invalid-feedback"
-      v-for="(error, index) in this.errorFor('from')"
-      :key="`from` + index"
-    >{{ error }}</div> -->
+    <v-errors :errors="errorFor('from')"></v-errors>
+
     <label for="from">To:</label>
     <input
       type="text"
@@ -27,57 +25,60 @@
       :class="[{'is_invalid':this.errorFor('to')}]"
       placeholder="end date.."
     />
-      <v-errors :errors="errorFor('to')"></v-errors>
-    <!-- <div
-      class="invalid-feedback"
-      v-for="(error, index) in this.errorFor('to')"
-      :key="`to` + index"
-    >{{ error }}</div> -->
-    <button class="btn btn-block" @click.prevent="check" :disabled="loading">Check!</button>
+    <v-errors :errors="errorFor('to')"></v-errors>
+
+    <button class="btn btn-block" @click.prevent="check" :disabled="loading">
+      <span v-if="!loading">Check!</span>
+      <span v-if="loading">
+        <i class="fas fa-circle-notch fa-spin"></i> Check...
+      </span>
+    </button>
+    
   </div>
 </template>
 <script>
-import {is422 } from "./../../shared/utils/response";
+import { is422 } from "./../../shared/utils/response";
 import validationErrors from "./../../shared/mixins/validationErrors";
 export default {
-  mixins:[validationErrors],
+  mixins: [validationErrors],
   props: {
     bookableId: {
       type: [String, Number],
-
       required: true,
     },
   },
   data() {
     return {
-      from: null,
-      to: null,
+      from: this.$store.state.lastSearch.from,
+      to: this.$store.state.lastSearch.to,
       loading: false,
       status: null,
     };
   },
   methods: {
-    check() {
+    async check() {
       this.loading = true;
       this.errors = null;
-      axios
-        .get(
-          `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
-        )
-        .then((response) => {
-          this.status = response.status;
-        })
-        .catch((error) => {
-          if (is422(error)) {
-            this.errors = error.response.data.errors;
-          }
-          this.status = error.response.status;
-        })
-        .then(() => {
-          this.loading = false;
-        });
+      this.$store.dispatch("setLastSearch", {
+        from: this.from,
+        to: this.to,
+      });
+      try {
+        this.status = (
+          await axios.get(
+            `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
+          )
+        ).status;
+        this.$emit("availability", this.hasAvailability)
+      } catch (error) {
+        if (is422(error)) {
+          this.errors = error.response.data.errors;
+        }
+        this.status = error.response.status;
+           this.$emit("availability", this.hasAvailability)
+      }
+      this.loading = false;
     },
-
   },
   computed: {
     hasErrors() {
