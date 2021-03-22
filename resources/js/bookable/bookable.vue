@@ -29,7 +29,7 @@
             class="btn btn-outline-secondary"
             v-if="price"
             @click.prevent="addToBasket"
-            :disabled="isBasketAlready"
+            :disabled="inBasketAlready"
           >Book now</button>
         </div>
       </transition>
@@ -37,12 +37,12 @@
         <div class="col-4">
           <button
             class="btn btn-outline-secondary"
-            v-if="isBasketAlready"
+            v-if="inBasketAlready"
             @click.prevent="removeFromBasket"
           >Remove</button>
         </div>
       </transition>
-      <div class="col-4" v-if="isBasketAlready">
+      <div class="col-4" v-if="inBasketAlready">
         <span>
           It is Seem you added this object to the basket already,if you want to change it,
           You can change it
@@ -88,16 +88,13 @@ export default {
   computed: {
     ...mapState({
       lastSearch: "lastSearch",
-      isBasketAlready(state) {
-        if (null === this.bookable) {
-          return false;
-        }
-        return state.basket.items.reduce(
-          (result, item) => result || item.bookable.id === this.bookable.id,
-          false
-        );
-      },
     }),
+    inBasketAlready() {
+      if (null === this.bookable) {
+        return false;
+      }
+      return this.$store.getters.inBasketAlready(this.bookable.id);
+    },
     ...mapGetters({
       itemsInBasket: "itemsInBasket",
     }),

@@ -2242,24 +2242,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
-    lastSearch: "lastSearch",
-    isBasketAlready: function isBasketAlready(state) {
-      var _this2 = this;
-
+    lastSearch: "lastSearch"
+  })), {}, {
+    inBasketAlready: function inBasketAlready() {
       if (null === this.bookable) {
         return false;
       }
 
-      return state.basket.items.reduce(function (result, item) {
-        return result || item.bookable.id === _this2.bookable.id;
-      }, false);
+      return this.$store.getters.inBasketAlready(this.bookable.id);
     }
-  })), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     itemsInBasket: "itemsInBasket"
   })),
   methods: {
     checkPrice: function checkPrice(event) {
-      var _this3 = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -2271,23 +2268,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   break;
                 }
 
-                _this3.price = null;
+                _this2.price = null;
                 return _context.abrupt("return");
 
               case 3:
                 _context.prev = 3;
                 _context.next = 6;
-                return axios.get("/api/bookables/".concat(_this3.bookable.id, "/price?from=").concat(_this3.lastSearch.from, "&to=").concat(_this3.lastSearch.to));
+                return axios.get("/api/bookables/".concat(_this2.bookable.id, "/price?from=").concat(_this2.lastSearch.from, "&to=").concat(_this2.lastSearch.to));
 
               case 6:
-                _this3.price = _context.sent.data.data;
+                _this2.price = _context.sent.data.data;
                 _context.next = 12;
                 break;
 
               case 9:
                 _context.prev = 9;
                 _context.t0 = _context["catch"](3);
-                _this3.price = null;
+                _this2.price = null;
 
               case 12:
               case "end":
@@ -27315,7 +27312,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-outline-secondary",
-                        attrs: { disabled: _vm.isBasketAlready },
+                        attrs: { disabled: _vm.inBasketAlready },
                         on: {
                           click: function($event) {
                             $event.preventDefault()
@@ -27331,7 +27328,7 @@ var render = function() {
             _vm._v(" "),
             _c("transition", [
               _c("div", { staticClass: "col-4" }, [
-                _vm.isBasketAlready
+                _vm.inBasketAlready
                   ? _c(
                       "button",
                       {
@@ -27349,7 +27346,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm.isBasketAlready
+            _vm.inBasketAlready
               ? _c("div", { staticClass: "col-4" }, [
                   _c("span", [
                     _vm._v(
@@ -46121,6 +46118,13 @@ __webpack_require__.r(__webpack_exports__);
   getters: {
     itemsInBasket: function itemsInBasket(state) {
       return state.basket.items.length;
+    },
+    inBasketAlready: function inBasketAlready(state) {
+      return function (id) {
+        return state.basket.items.reduce(function (result, item) {
+          return result || item.bookable.id === id;
+        }, false);
+      };
     }
   }
 });
