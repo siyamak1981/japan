@@ -9,3 +9,10 @@ $fa-font-path:"../webfonts";
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
+
+.v-enter-active, .v-leave-active{
+    transition:opacity 3s;
+}
+.v-enter, .v-leave-to {
+    opacity:0;
+}
