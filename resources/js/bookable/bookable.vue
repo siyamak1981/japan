@@ -12,7 +12,7 @@
       <transition>
         <div class="col-4 col-bascket">
           <span>Basket:</span>
-          <router-link :to="{name:'bookables'}">
+          <router-link :to="{name:'basket'}">
             <span v-if="itemsInBasket" class="fas fa-shopping-cart"></span>
             <sup>{{itemsInBasket}}</sup>
           </router-link>
@@ -40,7 +40,7 @@
             v-if="inBasketAlready"
             @click.prevent="removeFromBasket"
           >Remove</button>
-        </div>
+        </div>``
       </transition>
       <div class="col-4" v-if="inBasketAlready">
         <span>
@@ -115,15 +115,17 @@ export default {
         this.price = null;
       }
     },
+
     addToBasket() {
-      this.$store.commit("addToBasket", {
+      this.$store.dispatch("addToBasket", {
         price: this.price,
         bookable: this.bookable,
         dates: this.lastSearch,
       });
     },
+
     removeFromBasket() {
-      this.$store.commit("removeFromBasket", this.bookable.id);
+      this.$store.dispatch("removeFromBasket", this.bookable.id);
     },
   },
 };
