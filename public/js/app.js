@@ -2138,7 +2138,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _shared_mixins_validationErrors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/mixins/validationErrors */ "./resources/js/shared/mixins/validationErrors.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2179,13 +2188,118 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["itemsInBasket"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])({
+  mixins: ["validationErrors"],
+  data: function data() {
+    return {
+      loading: false,
+      customer: {
+        first_name: null,
+        last_name: null,
+        email: null,
+        state: null,
+        city: null,
+        street: null,
+        country: null,
+        zip: null
+      }
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["itemsInBasket"])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])({
     basket: function basket(state) {
       return state.basket.items;
     }
-  }))
+  })),
+  methods: {
+    book: function book() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.post("/checkout", {
+                  customer: _this.customer,
+                  bookings: _this.basket.map(function (basketItem) {
+                    return {
+                      bookable_id: basketItem.bookable.id,
+                      from: basketItem.dates.from,
+                      to: basketItem.dates.to
+                    };
+                  })
+                });
+
+              case 4:
+                _context.next = 8;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+
+              case 8:
+                _this.loading = false;
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 6]]);
+      }))();
+    }
+  }
 });
 
 /***/ }),
@@ -3061,7 +3175,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container-basket[data-v-9d55657e] {\r\n  margin: 100px;\n}\n.flex-span-basket[data-v-9d55657e] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: nowrap;\r\n  justify-content: space-between;\n}\n.flex-span-basket-pull[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  clear: both;\r\n  border-top: 1px solid #ffffff26;\r\n  justify-content: space-between;\n}\n.flex-justify-content-basket[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  clear: both;\r\n  justify-content: space-between;\n}\n.flex-justify-content-basket-fa-trash[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  clear: both;\r\n  justify-content: flex-end;\r\n  color: yellow;\n}\n.badge-basket[data-v-9d55657e] {\r\n  background: yellow;\r\n  border-radius: 50px;\r\n  padding: 5px;\r\n  font-size: 1.2em;\r\n  color: #111;\n}\n.container-basket a[data-v-9d55657e] {\r\n  color: #42b983;\n}\n.fade-enter-active[data-v-9d55657e], .fade-leave-active[data-v-9d55657e]{\r\n    transition:opacity 3s;\n}\n.fade-enter[data-v-9d55657e], .fade-leave-to[data-v-9d55657e] {\r\n    opacity:0;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.container-basket[data-v-9d55657e] {\r\n  margin: 50px 35px 50px 70px;\n}\n.flex-span-basket[data-v-9d55657e] {\r\n  margin-top: 15px;\r\n  float: right;\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex-wrap: nowrap;\r\n  justify-content: space-between;\n}\n.flex-span-basket-pull[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  border-top: 1px solid #ffffff26;\r\n  justify-content: space-between;\n}\n.flex-justify-content-basket[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  justify-content: space-between;\n}\n.flex-justify-content-basket-fa-trash[data-v-9d55657e] {\r\n  display: flex;\r\n  float: right;\r\n  justify-content: flex-end;\r\n  color: yellow;\r\n  cursor: pointer;\n}\n.badge-basket[data-v-9d55657e] {\r\n  background: yellow;\r\n  border-radius: 50px;\r\n  padding: 5px;\r\n  font-size: 1.2em;\r\n  color: #111;\n}\n.container-basket a[data-v-9d55657e] {\r\n  color: #42b983;\n}\n.fade-enter-active[data-v-9d55657e],\r\n.fade-leave-active[data-v-9d55657e] {\r\n  transition: opacity 3s;\n}\n.fade-enter[data-v-9d55657e],\r\n.fade-leave-to[data-v-9d55657e] {\r\n  opacity: 0;\n}\ninput[type=\"text\"][data-v-9d55657e],\r\ninput[type=\"email\"][data-v-9d55657e] {\r\n  width: 100%;\r\n  padding: 5px 5px;\r\n  margin: 8px 0;\r\n  border-radius: 5px;\r\n  border: 1px solid #eee;\r\n  background: transparent;\r\n  color: #eee;\n}\ninput[type=\"text\"][data-v-9d55657e]:focus,\r\ninput[type=\"email\"][data-v-9d55657e]:focus {\r\n  background-color: #eee;\r\n  color: #111;\n}\n.btn-block[data-v-9d55657e] {\r\n  background: #42b983;\r\n  padding: 7px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-9d55657e]:hover {\r\n  background-color: #35495e;\r\n  color: #ebebbe;\n}\nlabel[data-v-9d55657e] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\r\n", ""]);
 
 // exports
 
@@ -27350,80 +27464,304 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-basket" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c("div", { staticClass: "col-8" }, [_vm._v("Checkout Form")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4 flex-span-basket" }, [
-          _c("span", [_vm._v("Your Cart")]),
+  return _c(
+    "div",
+    { staticClass: "container-basket" },
+    [
+      _c("div", { staticClass: "col-8" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-6" }, [
+            _c("label", { attrs: { for: "First" } }, [_vm._v("First name")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.first_name,
+                  expression: "customer.first_name"
+                }
+              ],
+              attrs: { type: "text", name: "firs_tname", id: "" },
+              domProps: { value: _vm.customer.first_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "first_name", $event.target.value)
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _vm.itemsInBasket
-            ? _c("span", { staticClass: "badg badge-basket" }, [
-                _vm._v("Item:" + _vm._s(_vm.itemsInBasket))
-              ])
-            : _c("span", [_vm._v("Empty")])
+          _c("div", { staticClass: "col-6" }, [
+            _c("label", { attrs: { for: "First" } }, [_vm._v("Last name")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.last_name,
+                  expression: "customer.last_name"
+                }
+              ],
+              attrs: { type: "text", name: "last_name", id: "" },
+              domProps: { value: _vm.customer.last_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "last_name", $event.target.value)
+                }
+              }
+            })
+          ])
         ]),
         _vm._v(" "),
-        _c(
-          "transition-group",
-          { attrs: { name: "fade" } },
-          _vm._l(_vm.basket, function(item) {
-            return _c("div", { key: item.bookable.id }, [
-              _c("div", { staticClass: "col-4 flex-span-basket-pull" }, [
-                _c(
-                  "span",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: {
-                            name: "bookable",
-                            params: { id: item.bookable.id }
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(item.bookable.title))]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v("$" + _vm._s(item.price.total))])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4 flex-justify-content-basket" }, [
-                _c("span", [_vm._v("From:" + _vm._s(item.dates.from))]),
-                _vm._v(" "),
-                _c("span", [_vm._v("To:" + _vm._s(item.dates.to))])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("label", { attrs: { for: "Email" } }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
                 {
-                  staticClass: "col-4 flex-justify-content-basket-fa-trash",
-                  on: {
-                    click: function($event) {
-                      return _vm.$store.dispatch(
-                        "removeFromBasket",
-                        item.bookable.id
-                      )
-                    }
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.email,
+                  expression: "customer.email"
+                }
+              ],
+              attrs: { type: "email", name: "email", id: "" },
+              domProps: { value: _vm.customer.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                },
-                [_c("span", { staticClass: "fas fa-trash-alt" })]
-              )
+                  _vm.$set(_vm.customer, "email", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-6" }, [
+            _c("label", { attrs: { for: "Street" } }, [_vm._v("Street")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.street,
+                  expression: "customer.street"
+                }
+              ],
+              attrs: { type: "text", name: "street" },
+              domProps: { value: _vm.customer.street },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "street", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c("label", { attrs: { for: "City" } }, [_vm._v("City")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.city,
+                  expression: "customer.city"
+                }
+              ],
+              attrs: { type: "text", name: "city" },
+              domProps: { value: _vm.customer.city },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "city", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("label", { attrs: { for: "State" } }, [_vm._v("State")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.state,
+                  expression: "customer.state"
+                }
+              ],
+              attrs: { type: "text", name: "state" },
+              domProps: { value: _vm.customer.state },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "state", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c("label", { attrs: { for: "City" } }, [_vm._v("Country")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.country,
+                  expression: "customer.country"
+                }
+              ],
+              attrs: { type: "text", name: "country" },
+              domProps: { value: _vm.customer.country },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "country", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c("label", { attrs: { for: "Zip" } }, [_vm._v("Zip")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.customer.zip,
+                  expression: "customer.zip"
+                }
+              ],
+              attrs: { type: "text", name: "zip" },
+              domProps: { value: _vm.customer.zip },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.customer, "zip", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.book($event)
+                  }
+                }
+              },
+              [_vm._v("click")]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4 flex-span-basket" }, [
+        _c("span", [_vm._v("Your Cart")]),
+        _vm._v(" "),
+        _vm.itemsInBasket
+          ? _c("span", { staticClass: "badg badge-basket" }, [
+              _vm._v("Item:" + _vm._s(_vm.itemsInBasket))
             ])
-          }),
-          0
-        )
-      ],
-      1
-    )
-  ])
+          : _c("span", [_vm._v("Empty")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "transition-group",
+        { attrs: { name: "fade" } },
+        _vm._l(_vm.basket, function(item) {
+          return _c("div", { key: item.bookable.id }, [
+            _c("div", { staticClass: "col-4 flex-span-basket-pull" }, [
+              _c(
+                "span",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "bookable",
+                          params: { id: item.bookable.id }
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(item.bookable.title))]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("$" + _vm._s(item.price.total))])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4 flex-justify-content-basket" }, [
+              _c("span", [_vm._v("From:" + _vm._s(item.dates.from))]),
+              _vm._v(" "),
+              _c("span", [_vm._v("To:" + _vm._s(item.dates.to))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-4 flex-justify-content-basket-fa-trash",
+                on: {
+                  click: function($event) {
+                    return _vm.$store.dispatch(
+                      "removeFromBasket",
+                      item.bookable.id
+                    )
+                  }
+                }
+              },
+              [_c("span", { staticClass: "fas fa-trash-alt" })]
+            )
+          ])
+        }),
+        0
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -19,7 +19,11 @@ class CreateBookingsTable extends Migration
             $table->date('from');
             $table->date('to');
             $table->unsignedBigInteger('bookable_id')->index();
+            $table->unsignedBigInteger('price')->default(1000);
+            $table->unsignedBigInteger('address_id')->index()->nullable();
             $table->foreign('bookable_id')->references('id')->on('bookables');
+            // $table->foreign('address_id')->references('id')->on('addresses');
+          
             $table->timestamps();
         });
     }
@@ -32,5 +36,6 @@ class CreateBookingsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('bookings');
+      
     }
 }
