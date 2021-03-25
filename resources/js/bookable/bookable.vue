@@ -40,7 +40,7 @@
             v-if="inBasketAlready"
             @click.prevent="removeFromBasket"
           >Remove</button>
-        </div>``
+        </div>
       </transition>
       <div class="col-4" v-if="inBasketAlready">
         <span>

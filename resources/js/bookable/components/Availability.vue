@@ -33,7 +33,6 @@
         <i class="fas fa-circle-notch fa-spin"></i> Check...
       </span>
     </button>
-    
   </div>
 </template>
 <script>
@@ -69,13 +68,13 @@ export default {
             `/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`
           )
         ).status;
-        this.$emit("availability", this.hasAvailability)
+        this.$emit("availability", this.hasAvailability);
       } catch (error) {
         if (is422(error)) {
           this.errors = error.response.data.errors;
         }
         this.status = error.response.status;
-           this.$emit("availability", this.hasAvailability)
+        this.$emit("availability", this.hasAvailability);
       }
       this.loading = false;
     },
@@ -100,12 +99,18 @@ export default {
   color: #ebebeb;
 }
 input[type="text"] {
-  display: flex;
+  width: 100%;
   padding: 7px 7px;
   margin: 8px;
   border-radius: 5px;
-  width: 100%;
-  display: block;
+  border: none;
+  color: #111;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
 }
 
 .btn-block {

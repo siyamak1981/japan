@@ -43,18 +43,18 @@ export default {
         this.showLink = false;
         setTimeout(() => {
           this.showSidebar = false;
-          document.getElementById("app").style.paddingLeft = "50px";
-          document.getElementById("navigation").style.marginLeft = "28px";
+          document.getElementById("app").style.paddingLeft = "10px";
         }, 500);
+        
       } else {
+        this.showLink = true;
         this.showSidebar = true;
         document.getElementById("app").style.paddingLeft = "150px";
 
-        setTimeout(() => {
-          this.showLink = true;
-          document.getElementById("navigation").style.marginLeft = "68px";
-          document.getElementById("app").style.paddingLeft = "150px";
-        }, 500);
+        // setTimeout(() => {
+        //   this.showLink = true;
+        //   // document.getElementById("app").style.paddingLeft = "150px";
+        // }, 500);
       }
     },
   },
