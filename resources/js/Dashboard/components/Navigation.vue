@@ -18,14 +18,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #navigation {
   background: #111;
   border-bottom: 1px solid #ffffff26;
   height: 60px;
   overflow: hidden;
   position: fixed;
+  padding:0;
+  margin:0;
   top: 0;
+  left:0;
+  right:0;
   width: 100%;
 }
 .navbar {
@@ -33,29 +37,25 @@ export default {
 }
 .navbar #search {
   background: #eee;
-  margin-right: 100px;
   border: 2px solid #ffffff26;
   border-radius: 50px;
   color: #000;
   padding-top: 5px;
+
 }
 .navbar i {
   position: absolute;
   color: #35495e;
-  right: 130px;
+  right: 20px;
   top: 20px;
 }
 @media only screen and (max-width: 680px) {
   .navbar #search {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-right: 200px;
+   display:none;
     width: 100px;
   }
   .navbar i {
-    right: 220px;
-    top: 20px;
+    display: none;
   }
 }
 </style>
