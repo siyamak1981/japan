@@ -1,5 +1,13 @@
 <template>
   <div class="row">
+  
+ 
+      <transition>
+    <div class="feedback" v-if="hasAvailability">
+        <span v-if="noAvailability" class="text-danger">(NOT AVALABLE)</span>
+        <span v-if="hasAvailability" class="text-success"><small>(Send Your Request)</small></span>
+</div>
+      </transition>
     <div class="col-4 form-group">
       <label for="from">Name:</label>
       <input
@@ -42,7 +50,7 @@
       <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
         <span v-if="!loading">Register!</span>
         <span v-if="loading">
-          <i class="fas fa-circle-notch fa-spin"></i> Login...
+          <i class="fas fa-circle-notch fa-spin"></i> Loading...
         </span>
       </button>
     </div>
@@ -50,9 +58,10 @@
 </template>
 
    <script>
+import { is422 } from "../shared/utils/response";
 import validationErrors from "./../shared/mixins/validationErrors";
 export default {
-    name:"Register",
+  name: "Register",
   mixins: [validationErrors],
   data() {
     return {
@@ -64,17 +73,38 @@ export default {
       },
       loading: false,
       status: null,
-      errors: null,
     };
   },
   methods: {
-    handleSubmit(e) {
+    async handleSubmit(e) {
+      this.errors = null;
+      this.loading = true;
       e.preventDefault();
-      axios.post('/api/register', this.newUser)
-      .then(response=>{
 
-          console.log(response, this.newUser);
-      })
+      try {
+        this.status = (await axios.post("/api/register", this.newUser)).status;
+        // .then((response) => {
+        //   this.status = response.status;
+        // }
+        // )
+      } catch (error) {
+        if (is422) {
+          this.errors = error.response.data.errors;
+        }
+        this.status = error.response.status;
+      }
+      this.loading = false;
+    },
+  },
+  computed: {
+    hasErrors() {
+      return 422 == this.status && this.errors != null;
+    },
+    hasAvailability() {
+      return 200 == this.status;
+    },
+    noAvailability() {
+      return 404 == this.status;
     },
   },
 };
@@ -82,6 +112,15 @@ export default {
 
 
 <style scoped>
+.feedback{
+  margin:30px 500px;
+  background: #35495e;
+  width:300px;
+  height: 50px;
+  text-align: center;
+  padding:20px;
+
+}
 .form-group {
   color: #ebebeb;
   margin: 100px 0 100px 450px;
@@ -136,5 +175,9 @@ label {
 }
 .text-success {
   color: #42b983;
+  font-weight: bold;
+ 
 }
+
+
 </style>
