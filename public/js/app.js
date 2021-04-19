@@ -2317,7 +2317,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         password_confirmation: ""
       },
       loading: false,
-      status: null
+      status: null,
+      windowClose: true
     };
   },
   methods: {
@@ -2361,6 +2362,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[3, 9]]);
       }))();
+    },
+    closeFeedback: function closeFeedback() {
+      this.windowClose = false;
     }
   },
   computed: {
@@ -3594,7 +3598,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.feedback[data-v-d7dc2e88]{\r\n  margin:30px 500px;\r\n  background: #35495e;\r\n  width:300px;\r\n  height: 50px;\r\n  text-align: center;\r\n  padding:20px;\n}\n.form-group[data-v-d7dc2e88] {\r\n  color: #ebebeb;\r\n  margin: 100px 0 100px 450px;\n}\ninput[type=\"text\"][data-v-d7dc2e88],\r\ninput[type=\"email\"][data-v-d7dc2e88],\r\ninput[type=\"password\"][data-v-d7dc2e88] {\r\n  width: 100%;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  color: #111;\n}\ninput[type=\"text\"][data-v-d7dc2e88]:focus,\r\ninput[type=\"password\"][data-v-d7dc2e88]:focus,\r\ninput[type=\"email\"][data-v-d7dc2e88]:focus {\r\n  background-color: transparent;\r\n  border: 1px solid #eee;\r\n  color: #eee;\n}\n.btn-block[data-v-d7dc2e88] {\r\n  background: #42b983;\r\n  padding: 7px;\r\n  margin: 30px 8px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-d7dc2e88]:hover {\r\n  background-color: #35495e;\r\n  color: #ebebbe;\n}\nlabel[data-v-d7dc2e88] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\n.is_invalid[data-v-d7dc2e88] {\r\n  border: 3px solid #fa1e4e !important;\n}\n.invalid-feedback[data-v-d7dc2e88] {\r\n  color: #fa1e4e !important;\n}\n.text-danger[data-v-d7dc2e88] {\r\n  color: #fa1e4e;\n}\n.text-success[data-v-d7dc2e88] {\r\n  color: #42b983;\r\n  font-weight: bold;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.feedback[data-v-d7dc2e88] {\r\n  margin: 30px 0 0 30px;\r\n  background: #35495e;\r\n  width: 300px;\r\n  padding: 20px;\n}\n.form-group[data-v-d7dc2e88] {\r\n  color: #ebebeb;\r\n  margin: 100px 0 100px 450px;\n}\ninput[type=\"text\"][data-v-d7dc2e88],\r\ninput[type=\"email\"][data-v-d7dc2e88],\r\ninput[type=\"password\"][data-v-d7dc2e88] {\r\n  width: 100%;\r\n  padding: 7px 7px;\r\n  margin: 8px;\r\n  border-radius: 5px;\r\n  border: none;\r\n  color: #111;\n}\ninput[type=\"text\"][data-v-d7dc2e88]:focus,\r\ninput[type=\"password\"][data-v-d7dc2e88]:focus,\r\ninput[type=\"email\"][data-v-d7dc2e88]:focus {\r\n  background-color: transparent;\r\n  border: 1px solid #eee;\r\n  color: #eee;\n}\n.btn-block[data-v-d7dc2e88] {\r\n  background: #42b983;\r\n  padding: 7px;\r\n  margin: 30px 8px;\r\n  border-radius: 5px;\r\n  color: #111;\r\n  width: 100%;\r\n  display: block;\r\n  cursor: pointer;\r\n  font-weight: bolder;\r\n  border: none;\n}\n.btn-block[data-v-d7dc2e88]:hover {\r\n  background-color: #35495e;\r\n  color: #ebebbe;\n}\nlabel[data-v-d7dc2e88] {\r\n  text-transform: uppercase;\r\n  font-size: 0.7rem;\r\n  font-weight: bolder;\n}\n.is_invalid[data-v-d7dc2e88] {\r\n  border: 3px solid #fa1e4e !important;\n}\n.invalid-feedback[data-v-d7dc2e88] {\r\n  color: #fa1e4e !important;\n}\n.text-danger[data-v-d7dc2e88] {\r\n  color: #fa1e4e;\n}\n.text-success[data-v-d7dc2e88] {\r\n  color: #42b983;\r\n  font-weight: bold;\n}\n.fa-window-close[data-v-d7dc2e88] {\r\n  float: right;\n}\r\n", ""]);
 
 // exports
 
@@ -28168,19 +28172,33 @@ var render = function() {
     [
       _c("transition", [
         _vm.hasAvailability
-          ? _c("div", { staticClass: "feedback" }, [
-              _vm.noAvailability
-                ? _c("span", { staticClass: "text-danger" }, [
-                    _vm._v("(NOT AVALABLE)")
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.hasAvailability
-                ? _c("span", { staticClass: "text-success" }, [
-                    _c("small", [_vm._v("(Send Your Request)")])
-                  ])
-                : _vm._e()
-            ])
+          ? _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.windowClose,
+                    expression: "windowClose"
+                  }
+                ],
+                staticClass: "feedback",
+                on: { click: _vm.closeFeedback }
+              },
+              [
+                _vm.hasAvailability
+                  ? _c("span", { staticClass: "text-success" }, [
+                      _c("small", [_vm._v("(Send Your Request)")]),
+                      _vm._v(" "),
+                      _c("i", {
+                        staticClass: "fa fa-window-close",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ])
+                  : _vm._e()
+              ]
+            )
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -28281,7 +28299,7 @@ var render = function() {
                 expression: "newUser.password_confirmation"
               }
             ],
-            class: [{ is_invalid: this.errorFor("password") }],
+            class: [{ is_invalid: this.errorFor("password_confirmation") }],
             attrs: {
               type: "password",
               name: "password_confirmation",
@@ -28302,7 +28320,9 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("v-errors", { attrs: { errors: _vm.errorFor("password") } }),
+          _c("v-errors", {
+            attrs: { errors: _vm.errorFor("password_confirmation") }
+          }),
           _vm._v(" "),
           _c(
             "button",
@@ -28317,7 +28337,7 @@ var render = function() {
               _vm.loading
                 ? _c("span", [
                     _c("i", { staticClass: "fas fa-circle-notch fa-spin" }),
-                    _vm._v(" Loading...\n        ")
+                    _vm._v(" Loading...\n      ")
                   ])
                 : _vm._e()
             ]

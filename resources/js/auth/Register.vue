@@ -1,13 +1,13 @@
 <template>
   <div class="row">
-  
- 
-      <transition>
-    <div class="feedback" v-if="hasAvailability">
-        <span v-if="noAvailability" class="text-danger">(NOT AVALABLE)</span>
-        <span v-if="hasAvailability" class="text-success"><small>(Send Your Request)</small></span>
-</div>
-      </transition>
+    <transition>
+      <div class="feedback" v-if="hasAvailability" @click="closeFeedback" v-show="windowClose">
+        <span class="text-success" v-if="hasAvailability">
+          <small>(Send Your Request)</small>
+          <i class="fa fa-window-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </transition>
     <div class="col-4 form-group">
       <label for="from">Name:</label>
       <input
@@ -42,10 +42,10 @@
         type="password"
         name="password_confirmation"
         v-model="newUser.password_confirmation"
-        :class="[{'is_invalid':this.errorFor('password')}]"
+        :class="[{'is_invalid':this.errorFor('password_confirmation')}]"
         placeholder="password .."
       />
-      <v-errors :errors="errorFor('password')"></v-errors>
+      <v-errors :errors="errorFor('password_confirmation')"></v-errors>
 
       <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
         <span v-if="!loading">Register!</span>
@@ -73,8 +73,10 @@ export default {
       },
       loading: false,
       status: null,
+      windowClose: true,
     };
   },
+
   methods: {
     async handleSubmit(e) {
       this.errors = null;
@@ -83,6 +85,7 @@ export default {
 
       try {
         this.status = (await axios.post("/api/register", this.newUser)).status;
+
         // .then((response) => {
         //   this.status = response.status;
         // }
@@ -94,6 +97,9 @@ export default {
         this.status = error.response.status;
       }
       this.loading = false;
+    },
+    closeFeedback() {
+      this.windowClose = false;
     },
   },
   computed: {
@@ -112,14 +118,11 @@ export default {
 
 
 <style scoped>
-.feedback{
-  margin:30px 500px;
+.feedback {
+  margin: 30px 0 0 30px;
   background: #35495e;
-  width:300px;
-  height: 50px;
-  text-align: center;
-  padding:20px;
-
+  width: 300px;
+  padding: 20px;
 }
 .form-group {
   color: #ebebeb;
@@ -176,8 +179,8 @@ label {
 .text-success {
   color: #42b983;
   font-weight: bold;
- 
 }
-
-
+.fa-window-close {
+  float: right;
+}
 </style>
