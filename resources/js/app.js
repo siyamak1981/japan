@@ -41,3 +41,4 @@ const app = new Vue({
         this.$store.dispatch('loadStoredState');
     }
 });
+

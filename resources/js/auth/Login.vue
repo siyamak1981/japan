@@ -1,12 +1,20 @@
 
 <template>
   <div class="row">
+    <transition>
+      <div class="feedback" v-if="hasAvailability" @click="closeFeedback" v-show="windowClose">
+        <span class="text-success" v-if="hasAvailability">
+          <small>(You Logged In Successfully!)</small>
+          <i class="fa fa-window-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </transition>
     <div class="col-4 form-group">
       <label for="from">Email:</label>
       <input
         type="text"
         name="from"
-        v-model="email"
+        v-model="user.email"
         :class="[{'is_invalid':this.errorFor('email')}]"
         placeholder="Start date.."
       />
@@ -16,12 +24,17 @@
       <input
         type="text"
         name="to"
-        v-model="password"
+        v-model="user.password"
         :class="[{'is_invalid':this.errorFor('password')}]"
         placeholder="password .."
       />
       <v-errors :errors="errorFor('password')"></v-errors>
-
+      <div>
+        Do not You Have a Acoount?
+        <small>
+          <router-link :to="{name:'register'}">Register</router-link>
+        </small>
+      </div>
       <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
         <span v-if="!loading">Check!</span>
         <span v-if="loading">
@@ -39,58 +52,76 @@ export default {
   mixins: [validationErrors],
   data() {
     return {
-      email: "",
-      password: "",
+      user: {
+        email: "",
+        password: "",
+      },
       loading: false,
       status: null,
+      windowClose: true,
     };
   },
   methods: {
-    handleSubmit(e) {
+    async handleSubmit(e) {
+      this.errors = null;
+      this.loading = true;
       e.preventDefault();
 
-      if (this.password.length > 0) {
-        this.loading = true;
-        this.errors = null;
-        axios
-          .post("api/login", {
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            localStorage.setItem("user", response.data.success.name);
-            localStorage.setItem("jwt", response.data.success.token);
-
-            if (localStorage.getItem("jwt") != null) {
-              this.$router.go("/board");
-            }
-          })
-          .catch(function (error) {
-            if (is422(error)) {
-              this.errors = error.response.data.errors;
-            }
-            this.status = error.response.status;
-          });
-        this.loading = false;
+      try {
+        this.status = (await axios.post("/api/login", this.user)).status;
+        
+ localStorage.setItem('token', response.data)
+ console.log(response.data)
+        setTimeout(() => {
+          this.$router.push("/board");
+        }, 4000);
+      } catch (error) {
+        if (is422) {
+          this.errors = error.response.data.errors;
+        }
+        this.status = error.response.status;
       }
+      this.loading = false;
     },
+    closeFeedback() {
+      this.windowClose = false;
+    },
+    // handleSubmit(){
+    //   axios.post('/api/login', this.user)
+    //   .then(response =>{
+    //     console.log(response)
+    //   })
+    // }
   },
-  beforeRouteEnter(to, from, next) {
-    if (localStorage.getItem("jwt")) {
-      return next("board");
-    }
-
-    next();
+  computed: {
+    hasErrors() {
+      return 422 == this.status && this.errors != null;
+    },
+    hasAvailability() {
+      return 200 == this.status;
+    },
+    noAvailability() {
+      return 404 == this.status;
+    },
   },
 };
 </script>
 
 
 <style scoped>
-
+.feedback {
+  float: right;
+  margin: 30px 30px 0 0px;
+  background: #35495e;
+  width: 300px;
+  padding: 20px;
+}
+small a {
+  color: yellow;
+}
 .form-group {
-     color: #ebebeb;
-    margin:100px 0 100px 450px;
+  color: #ebebeb;
+  margin: 100px 0 100px 450px;
 }
 input[type="text"] {
   width: 100%;
@@ -110,7 +141,7 @@ input[type="email"]:focus {
 .btn-block {
   background: #42b983;
   padding: 7px;
-  margin:30px 8px ;
+  margin: 30px 8px;
   border-radius: 5px;
   color: #111;
   width: 100%;
@@ -139,5 +170,8 @@ label {
 }
 .text-success {
   color: #42b983;
+}
+.fa-window-close {
+  float: right;
 }
 </style>

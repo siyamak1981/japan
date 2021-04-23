@@ -3,7 +3,7 @@
     <transition>
       <div class="feedback" v-if="hasAvailability" @click="closeFeedback" v-show="windowClose">
         <span class="text-success" v-if="hasAvailability">
-          <small>(Send Your Request)</small>
+          <small>(Sent Your Request Successfully!)</small>
           <i class="fa fa-window-close" aria-hidden="true"></i>
         </span>
       </div>
@@ -46,7 +46,12 @@
         placeholder="password .."
       />
       <v-errors :errors="errorFor('password_confirmation')"></v-errors>
-
+      <div>
+        Do you have account already ?
+      <small>
+        <router-link :to="{name:'login'}">Login</router-link>
+      </small>
+      </div>
       <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
         <span v-if="!loading">Register!</span>
         <span v-if="loading">
@@ -118,8 +123,12 @@ export default {
 
 
 <style scoped>
+small a {
+  color:yellow
+}
 .feedback {
-  margin: 30px 0 0 30px;
+  float: right;
+  margin: 30px 30px 0 0px;
   background: #35495e;
   width: 300px;
   padding: 20px;
