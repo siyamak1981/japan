@@ -18,3 +18,4 @@ Route::post('/checkout', 'CheckoutController')->name('checkout');
 
 Route::post('/login', 'Api\Auth\Authcontroller@login')->name('api.login'); 
 Route::post('/register', 'Api\Auth\Authcontroller@register')->name('api.register'); 
+Route::get('/logout', 'Api\Auth\Authcontroller@logout')->name('api.logout'); 

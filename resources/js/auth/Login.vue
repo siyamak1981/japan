@@ -13,7 +13,7 @@
       <label for="from">Email:</label>
       <input
         type="text"
-        name="from"
+        name="email"
         v-model="user.email"
         :class="[{'is_invalid':this.errorFor('email')}]"
         placeholder="Start date.."
@@ -23,7 +23,7 @@
       <label for="from">Password:</label>
       <input
         type="text"
-        name="to"
+        name="password"
         v-model="user.password"
         :class="[{'is_invalid':this.errorFor('password')}]"
         placeholder="password .."
@@ -35,7 +35,7 @@
           <router-link :to="{name:'register'}">Register</router-link>
         </small>
       </div>
-      <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
+      <button class="btn btn-block" @click.prevent="handleSubmit" :disabled="loading">
         <span v-if="!loading">Check!</span>
         <span v-if="loading">
           <i class="fas fa-circle-notch fa-spin"></i> Login...
@@ -46,9 +46,10 @@
 </template>
 
    <script>
-import { is422 } from "./../shared/utils/response";
-import validationErrors from "./../shared/mixins/validationErrors";
+import { is422 } from "../shared/utils/response";
+import validationErrors from "../shared/mixins/validationErrors";
 export default {
+  name: "Login",
   mixins: [validationErrors],
   data() {
     return {
@@ -56,42 +57,42 @@ export default {
         email: "",
         password: "",
       },
+      token: localStorage.getItem("access_token") || null,
       loading: false,
       status: null,
       windowClose: true,
     };
   },
   methods: {
-    async handleSubmit(e) {
+    handleSubmit(e) {
       this.errors = null;
       this.loading = true;
-      e.preventDefault();
+      this.$store;
+      axios
+        .post("/api/login", this.user)
+        .then((response) => {
+          const token = response.data.success.token;
+          localStorage.setItem("access_token", token);
+          localStorage.setItem("user", response.data.success.name);
+          this.status = response.status;
+          if (localStorage.getItem("access_token") != null) {
+            setTimeout(() => {
+              this.$router.push("/board");
+            }, 4000);
+          }
+        })
 
-      try {
-        this.status = (await axios.post("/api/login", this.user)).status;
-        
- localStorage.setItem('token', response.data)
- console.log(response.data)
-        setTimeout(() => {
-          this.$router.push("/board");
-        }, 4000);
-      } catch (error) {
-        if (is422) {
-          this.errors = error.response.data.errors;
-        }
-        this.status = error.response.status;
-      }
+        .catch((error) => {
+          if (is422) {
+            this.errors = error.response.data.errors;
+          }
+          this.status = error.response.status;
+        });
       this.loading = false;
     },
     closeFeedback() {
       this.windowClose = false;
     },
-    // handleSubmit(){
-    //   axios.post('/api/login', this.user)
-    //   .then(response =>{
-    //     console.log(response)
-    //   })
-    // }
   },
   computed: {
     hasErrors() {

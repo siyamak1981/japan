@@ -21,7 +21,8 @@ class AuthController extends Controller
 
         if (Auth::attempt($credential)) {
             $user = Auth::user();
-            $success['token'] =  $user->createToken('MyApp')->accessToken;
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['name'] = $user->name;
             return response()->json(['success' => $success], 200);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -50,5 +51,14 @@ class AuthController extends Controller
 
         return response()->json(["Success" => "User registered successfully!"], 200);
     }
-   
+
+    public function logout(Request $request)
+    {
+        if (Auth::check()) {
+            Auth::user()->token->delete();
+         }
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
+    }
 }

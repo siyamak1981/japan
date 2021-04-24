@@ -1,9 +1,7 @@
 <template>
   <div>
     <navigation-bar></navigation-bar>
-    <div class="row">
-  
-    </div>
+    <div class="row"></div>
   </div>
 </template>
 <script>
@@ -12,15 +10,16 @@ import Navigation from "./Navigation.vue";
 export default {
   components: {
     "navigation-bar": Navigation,
-  
   },
   data() {
-    return {
-
-    };
+    return {};
   },
 
-
+  mounted() {
+    let token = localStorage.getItem("access_token");
+    axios.defaults.headers.common["Content-Type"] = "application/json";
+    axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+  },
 };
 </script>
 <style scoped>
@@ -31,5 +30,4 @@ export default {
   align-content: center;
   margin: 100px;
 }
-
 </style>

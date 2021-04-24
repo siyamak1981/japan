@@ -4,16 +4,24 @@
       <div class="col-12">
         <ul>
           <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">
-          <i class="fas fa-sign-in-alt"><span> Login</span></i>
+            <i class="fas fa-sign-in-alt">
+              <span>Login</span>
+            </i>
           </router-link>
           <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">
-          <i class="fas fa-user-plus"><span> Register</span></i>
+            <i class="fas fa-user-plus">
+              <span>Register</span>
+            </i>
           </router-link>
           <li class="nav-link" v-if="isLoggedIn">
-            Hi, {{name}}
             <i class="fas fa-user"></i>
+            Hi {{name}}
           </li>
-          <router-link :to="{ name: 'home' }" class="nav-link" v-if="isLoggedIn">Dashboard</router-link>
+          <div class="nav-link" @click.prevent="logout" v-if="isLoggedIn">
+            <i class="fa fa-sign-out-alt"></i>
+
+            Logout
+          </div>
         </ul>
       </div>
     </div>
@@ -28,8 +36,28 @@ export default {
       name: null,
     };
   },
+  methods: {
+    logout() {
+      const token = localStorage.getItem("access_token");
+      axios
+        .get("/api/logout", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          localStorage.removeItem("access_token");
+          this.$router.push("/landing");
+        })
+        .catch((error) => {
+          localStorage.removeItem("access_token");
+        });
+    },
+  },
+
   mounted() {
-    this.isLoggedIn = localStorage.getItem("jwt");
+    this.isLoggedIn = localStorage.getItem("access_token");
     this.name = localStorage.getItem("user");
   },
 };
@@ -53,21 +81,20 @@ export default {
   margin-right: 120px;
 }
 .navbar ul a {
-    display: flex;
-    align-items: center;
-    align-content: space-between;
-    justify-content: space-between;
-  
-    }
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
 
 .navbar i {
-    position: relative;
+  position: relative;
   color: #42b983;
- 
 }
 .navbar ul .nav-link {
   margin-left: 20px;
   float: left;
+  list-style-type: none;
+  cursor: pointer;
 }
-
 </style>

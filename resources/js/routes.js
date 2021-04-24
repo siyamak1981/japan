@@ -5,7 +5,8 @@ import Review from "./review/Review.vue";
 import Basket from "./basket/Basket.vue";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import Board from './front/Board'
+import Board from "./front/Board";
+import Landing from "./front/Landing.vue";
 import VueRouter from "vue-router";
 import Middlewares from "./middlewares/index";
 
@@ -14,62 +15,62 @@ const router = new VueRouter({
 
     routes: [
         {
-            path: '/board',
-            name: 'board',
-            component: Board,
+            path: "/board",
+            name: "board",
+            component: Board
         },
         {
             name: "login",
             path: "/login",
             component: Login,
-            meta:{
-                middleware:[Middlewares.guest]
+            meta: {
+                middleware: [Middlewares.guest]
             }
         },
         {
             name: "register",
             path: "/register",
             component: Register,
-            meta:{
-                middleware:[Middlewares.auth]
+            meta: {
+                middleware: [Middlewares.auth]
             }
+        },
+        {
+            name: "landing",
+            path: "/landing",
+            component: Landing
         },
 
         {
             name: "home",
             path: "/",
             component: Home,
-            children:[
+            children: [
                 {
                     name: "bookables",
                     path: "/bookables",
-                    component:Bookables
+                    component: Bookables
                 },
-                
+
                 {
                     path: "/bookable/:id",
                     name: "bookable",
-                    component:Bookable
+                    component: Bookable
                 },
                 {
                     path: "/review/:id",
                     name: "review",
-                    component:Review
+                    component: Review
                 },
                 {
                     path: "/basket",
                     name: "basket",
-                    component:Basket
-                },
+                    component: Basket
+                }
             ]
-        },
-        
+        }
     ]
-    
-    
-}
-
-);
+});
 
 // function nextCheck(context, middleware, index){
 //     const nextMiddleware = middleware[index];
@@ -79,7 +80,7 @@ const router = new VueRouter({
 //         const nextMidd = nextCheck(context, middleware, index + 1);
 //         nextMiddleware({...context, next:nextMidd})
 //     }
-    
+
 // };
 // router.beforeEach((to,from,next) =>{
 //     if(to.meta.middleware) {
@@ -94,5 +95,3 @@ const router = new VueRouter({
 //     const middleware = nextCheck(ctx, middleware, 1);
 //     return middleware[0]({...ctx, next, nextMiddleware});
 export default router;
-
-

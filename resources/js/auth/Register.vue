@@ -48,9 +48,9 @@
       <v-errors :errors="errorFor('password_confirmation')"></v-errors>
       <div>
         Do you have account already ?
-      <small>
-        <router-link :to="{name:'login'}">Login</router-link>
-      </small>
+        <small>
+          <router-link :to="{name:'login'}">Login</router-link>
+        </small>
       </div>
       <button class="btn btn-block" @click="handleSubmit" :disabled="loading">
         <span v-if="!loading">Register!</span>
@@ -88,19 +88,26 @@ export default {
       this.loading = true;
       e.preventDefault();
 
-      try {
-        this.status = (await axios.post("/api/register", this.newUser)).status;
+      // try {
+      // this.status = (await axios.post("/api/register", this.newUser)).status;
+      axios
+        .post("/api/register", this.newUser)
+        .then((response) => {
+          this.status = response.status;
+          localStorage.setItem("user", response.data.data.name);
+          localStorage.setItem("access_token", response.data.success.token);
 
-        // .then((response) => {
-        //   this.status = response.status;
+          if (localStorage.getItem("access_token") != null) {
+            this.$router.go("/board");
+          }
+        })
         // }
-        // )
-      } catch (error) {
-        if (is422) {
-          this.errors = error.response.data.errors;
-        }
-        this.status = error.response.status;
-      }
+        .catch((error) => {
+          if (is422) {
+            this.errors = error.response.data.errors;
+          }
+          this.status = error.response.status;
+        });
       this.loading = false;
     },
     closeFeedback() {
@@ -124,7 +131,7 @@ export default {
 
 <style scoped>
 small a {
-  color:yellow
+  color: yellow;
 }
 .feedback {
   float: right;

@@ -1,6 +1,5 @@
 export default {
     state: {
-
         lastSearch: {
             from: null,
             to: null
@@ -8,11 +7,11 @@ export default {
 
         basket: {
             items: []
-        }
+        },
+    
     },
 
     mutations: {
-
         setLastSearch(state, payload) {
             state.lastSearch = payload;
         },
@@ -26,22 +25,19 @@ export default {
                 item => item.bookable.id !== payload
             );
         },
-        
+
         setBasket(state, payload) {
             state.basket = payload;
         }
-        
     },
 
     actions: {
-
         setLastSearch(context, payload) {
             context.commit("setLastSearch", payload);
             localStorage.setItem("lastSearch", JSON.stringify(payload));
         },
 
         loadStoredState(context) {
-            
             const lastSearch = localStorage.getItem("lastSearch");
             if (lastSearch) {
                 context.commit("setLastSearch", JSON.parse(lastSearch));
@@ -55,22 +51,22 @@ export default {
 
         addToBasket({ commit, state }, payload) {
             commit("addToBasket", payload);
-            localStorage.setItem("basket",JSON.stringify(state.basket));
+            localStorage.setItem("basket", JSON.stringify(state.basket));
         },
 
-        removeFromBasket ({commit,state},payload) {
+        removeFromBasket({ commit, state }, payload) {
             commit("removeFromBasket", payload);
             localStorage.setItem("basket", JSON.stringify(state.basket));
         },
 
-        clearBasket ({commit,state},payload) {
-            commit("setBasket", {items:[]})
+        clearBasket({ commit, state }, payload) {
+            commit("setBasket", { items: [] });
             localStorage.setItem("basket", JSON.stringify(state.basket));
         }
     },
 
     getters: {
-        itemsInBasket: (state) => state.basket.items.length,
+        itemsInBasket: state => state.basket.items.length,
 
         inBasketAlready(state) {
             return function(id) {
