@@ -77,7 +77,7 @@ export default {
           this.status = response.status;
           if (localStorage.getItem("access_token") != null) {
             setTimeout(() => {
-              this.$router.push("/board");
+              this.$router.push("/landing");
             }, 4000);
           }
         })

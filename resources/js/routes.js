@@ -5,8 +5,7 @@ import Review from "./review/Review.vue";
 import Basket from "./basket/Basket.vue";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import Board from "./front/Board";
-import Landing from "./front/Landing.vue";
+import Landing from "./front/Landing";
 import VueRouter from "vue-router";
 import Middlewares from "./middlewares/index";
 
@@ -15,16 +14,19 @@ const router = new VueRouter({
 
     routes: [
         {
-            path: "/board",
-            name: "board",
-            component: Board
+            path: "/landing",
+            name: "landing",
+            component: Landing
         },
         {
             name: "login",
             path: "/login",
             component: Login,
+            // meta: {
+            //     middleware: [Middlewares.guest]
+            // }
             meta: {
-                middleware: [Middlewares.guest]
+                requiresVisitor: true
             }
         },
         {
@@ -35,16 +37,15 @@ const router = new VueRouter({
                 middleware: [Middlewares.auth]
             }
         },
-        {
-            name: "landing",
-            path: "/landing",
-            component: Landing
-        },
+      
 
         {
             name: "home",
             path: "/",
             component: Home,
+            meta: {
+                requiresAuth: true
+              },
             children: [
                 {
                     name: "bookables",

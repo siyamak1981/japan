@@ -98,7 +98,7 @@ export default {
           localStorage.setItem("access_token", response.data.success.token);
 
           if (localStorage.getItem("access_token") != null) {
-            this.$router.go("/board");
+            this.$router.go("/landing");
           }
         })
         // }
