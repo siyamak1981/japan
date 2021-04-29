@@ -2208,7 +2208,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.errors = null;
       this.loading = true;
-      this.$store;
       axios.post("/api/login", this.user).then(function (response) {
         var token = response.data.success.token;
         localStorage.setItem("access_token", token);
@@ -3196,7 +3195,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    "navigation-bar": _Navigation_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    "navigationBar": _Navigation_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {};
@@ -3301,6 +3300,11 @@ __webpack_require__.r(__webpack_exports__);
       return 404 == this.status;
     }
   },
+  // computed:{
+  //   isLoggedIn(){
+  //     return this.$store.getters('user/isLoggedIn')
+  //   }
+  // },
   mounted: function mounted() {
     this.isLoggedIn = localStorage.getItem("access_token");
     this.name = localStorage.getItem("user");
@@ -47059,6 +47063,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_components_Success__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/components/Success */ "./resources/js/shared/components/Success.vue");
 /* harmony import */ var _shared_components_ValidationErrors__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/components/ValidationErrors */ "./resources/js/shared/components/ValidationErrors.vue");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_store__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
@@ -47090,7 +47095,7 @@ vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("star-rating", _shared_com
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("fatal-error", _shared_components_FatalError__WEBPACK_IMPORTED_MODULE_5__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("success", _shared_components_Success__WEBPACK_IMPORTED_MODULE_6__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("v-errors", _shared_components_ValidationErrors__WEBPACK_IMPORTED_MODULE_7__["default"]);
-var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store(_store__WEBPACK_IMPORTED_MODULE_8__["default"]); // router auth permission or gate
+var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store(_store__WEBPACK_IMPORTED_MODULE_8___default.a); // router auth permission or gate
 
 _routes__WEBPACK_IMPORTED_MODULE_0__["default"].beforeEach(function (to, from, next) {
   if (to.matched.some(function (record) {
@@ -47128,8 +47133,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
   components: {
     Index: _Index__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  beforeCreate: function beforeCreate() {
-    this.$store.dispatch("loadStoredState");
+  beforeCreate: function beforeCreate() {// this.$store.dispatch("loadStoredState");
   }
 });
 
@@ -48720,89 +48724,75 @@ var isErrorWithResponseAndStatus = function isErrorWithResponseAndStatus(error) 
 /*!*******************************!*\
   !*** ./resources/js/store.js ***!
   \*******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: {
-    lastSearch: {
-      from: null,
-      to: null
-    },
-    basket: {
-      items: []
-    }
-  },
-  mutations: {
-    setLastSearch: function setLastSearch(state, payload) {
-      state.lastSearch = payload;
-    },
-    addToBasket: function addToBasket(state, payload) {
-      state.basket.items.push(payload);
-    },
-    removeFromBasket: function removeFromBasket(state, payload) {
-      state.basket.items = state.basket.items.filter(function (item) {
-        return item.bookable.id !== payload;
-      });
-    },
-    setBasket: function setBasket(state, payload) {
-      state.basket = payload;
-    }
-  },
-  actions: {
-    setLastSearch: function setLastSearch(context, payload) {
-      context.commit("setLastSearch", payload);
-      localStorage.setItem("lastSearch", JSON.stringify(payload));
-    },
-    loadStoredState: function loadStoredState(context) {
-      var lastSearch = localStorage.getItem("lastSearch");
-
-      if (lastSearch) {
-        context.commit("setLastSearch", JSON.parse(lastSearch));
-      }
-
-      var basket = localStorage.getItem("basket");
-
-      if (basket) {
-        context.commit("setBasket", JSON.parse(basket));
-      }
-    },
-    addToBasket: function addToBasket(_ref, payload) {
-      var commit = _ref.commit,
-          state = _ref.state;
-      commit("addToBasket", payload);
-      localStorage.setItem("basket", JSON.stringify(state.basket));
-    },
-    removeFromBasket: function removeFromBasket(_ref2, payload) {
-      var commit = _ref2.commit,
-          state = _ref2.state;
-      commit("removeFromBasket", payload);
-      localStorage.setItem("basket", JSON.stringify(state.basket));
-    },
-    clearBasket: function clearBasket(_ref3, payload) {
-      var commit = _ref3.commit,
-          state = _ref3.state;
-      commit("setBasket", {
-        items: []
-      });
-      localStorage.setItem("basket", JSON.stringify(state.basket));
-    }
-  },
-  getters: {
-    itemsInBasket: function itemsInBasket(state) {
-      return state.basket.items.length;
-    },
-    inBasketAlready: function inBasketAlready(state) {
-      return function (id) {
-        return state.basket.items.reduce(function (result, item) {
-          return result || item.bookable.id === id;
-        }, false);
-      };
-    }
-  }
-});
+// export default {
+//     state: {
+//         lastSearch: {
+//             from: null,
+//             to: null
+//         },
+//         basket: {
+//             items: []
+//         },
+//     },
+//     mutations: {
+//         setLastSearch(state, payload) {
+//             state.lastSearch = payload;
+//         },
+//         addToBasket(state, payload) {
+//             state.basket.items.push(payload);
+//         },
+//         removeFromBasket(state, payload) {
+//             state.basket.items = state.basket.items.filter(
+//                 item => item.bookable.id !== payload
+//             );
+//         },
+//         setBasket(state, payload) {
+//             state.basket = payload;
+//         }
+//     },
+//     actions: {
+//         setLastSearch(context, payload) {
+//             context.commit("setLastSearch", payload);
+//             localStorage.setItem("lastSearch", JSON.stringify(payload));
+//         },
+//         loadStoredState(context) {
+//             const lastSearch = localStorage.getItem("lastSearch");
+//             if (lastSearch) {
+//                 context.commit("setLastSearch", JSON.parse(lastSearch));
+//             }
+//             const basket = localStorage.getItem("basket");
+//             if (basket) {
+//                 context.commit("setBasket", JSON.parse(basket));
+//             }
+//         },
+//         addToBasket({ commit, state }, payload) {
+//             commit("addToBasket", payload);
+//             localStorage.setItem("basket", JSON.stringify(state.basket));
+//         },
+//         removeFromBasket({ commit, state }, payload) {
+//             commit("removeFromBasket", payload);
+//             localStorage.setItem("basket", JSON.stringify(state.basket));
+//         },
+//         clearBasket({ commit, state }, payload) {
+//             commit("setBasket", { items: [] });
+//             localStorage.setItem("basket", JSON.stringify(state.basket));
+//         }
+//     },
+//     getters: {
+//         itemsInBasket: state => state.basket.items.length,
+//         inBasketAlready(state) {
+//             return function(id) {
+//                 return state.basket.items.reduce(
+//                     (result, item) => result || item.bookable.id === id,
+//                     false
+//                 );
+//             };
+//         }
+//     }
+// };
 
 /***/ }),
 

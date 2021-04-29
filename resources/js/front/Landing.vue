@@ -9,7 +9,7 @@ import Navigation from "./Navigation.vue";
 
 export default {
   components: {
-    "navigation-bar": Navigation,
+    "navigationBar": Navigation,
   },
   data() {
     return {};

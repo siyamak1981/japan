@@ -82,6 +82,11 @@ export default {
       return 404 == this.status;
     },
   },
+  // computed:{
+  //   isLoggedIn(){
+  //     return this.$store.getters('user/isLoggedIn')
+  //   }
+  // },
   mounted() {
     this.isLoggedIn = localStorage.getItem("access_token");
     this.name = localStorage.getItem("user");

@@ -64,10 +64,11 @@ export default {
     };
   },
   methods: {
+    
     handleSubmit(e) {
       this.errors = null;
       this.loading = true;
-      this.$store;
+   
       axios
         .post("/api/login", this.user)
         .then((response) => {
@@ -105,6 +106,7 @@ export default {
       return 404 == this.status;
     },
   },
+
 };
 </script>
 
