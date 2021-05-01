@@ -1,10 +1,9 @@
-
 <template>
   <div class="row">
     <transition>
       <div class="feedback" v-if="hasAvailability" @click="closeFeedback" v-show="windowClose">
         <span class="text-success" v-if="hasAvailability">
-          <small>(You Logged In Successfully!)</small>
+          <small>(Password Is Changed Successfully!)</small>
           <i class="fa fa-window-close" aria-hidden="true"></i>
         </span>
       </div>
@@ -14,35 +13,34 @@
       <input
         type="email"
         name="email"
-        v-model="user.email"
+        v-model="email"
         :class="[{'is_invalid':this.errorFor('email')}]"
-        placeholder="Start date.."
+        placeholder="email.."
       />
       <v-errors :errors="errorFor('email')"></v-errors>
 
-      <label for="from">Password:</label>
+      <label for="from">New Password:</label>
       <input
         type="password"
         name="password"
-        v-model="user.password"
+        v-model="password"
         :class="[{'is_invalid':this.errorFor('password')}]"
         placeholder="password .."
       />
       <v-errors :errors="errorFor('password')"></v-errors>
-      <div>
-        Do not You Have a Acoount?
-        <small>
-          <router-link :to="{name:'register'}">Register</router-link>
-        </small>
-        <small class="forget">
-          <router-link :to="{name:'forgetpassword'}">Forget password?</router-link>
-        </small>
-      </div>
-
-      <button class="btn btn-block" @click.prevent="handleSubmit" :disabled="loading">
-        <span v-if="!loading">Check!</span>
+      <label for="from">Repeat Password:</label>
+      <input
+        type="password"
+        name="password_confirmation"
+        v-model="password_confirmation"
+        :class="[{'is_invalid':this.errorFor('password_confirmation')}]"
+        placeholder="password .."
+      />
+      <v-errors :errors="errorFor('password_confirmation')"></v-errors>
+      <button class="btn btn-block" @click="resetPassword" :disabled="loading">
+        <span v-if="!loading">Password Change!</span>
         <span v-if="loading">
-          <i class="fas fa-circle-notch fa-spin"></i> Login...
+          <i class="fas fa-circle-notch fa-spin"></i> Loading...
         </span>
       </button>
     </div>
@@ -51,47 +49,47 @@
 
    <script>
 import { is422 } from "../shared/utils/response";
-import validationErrors from "../shared/mixins/validationErrors";
+import validationErrors from "./../shared/mixins/validationErrors";
 export default {
-  name: "Login",
+  name: "Register",
   mixins: [validationErrors],
   data() {
     return {
-      user: {
-        email: "",
-        password: "",
-      },
-      token: localStorage.getItem("access_token") || null,
+      token: null,
+      email: null,
+      password: null,
+      password_confirmation: null,
       loading: false,
       status: null,
       windowClose: true,
     };
   },
+
   methods: {
-    handleSubmit(e) {
+    resetPassword(e) {
       this.errors = null;
       this.loading = true;
+      e.preventDefault();
 
       axios
-        .post("/api/login", this.user)
+        .post("/api/reset-password", {
+          token: this.$route.query.token,
+
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password_confirmation,
+        })
         .then((response) => {
-          const token = response.data.success.token;
-          localStorage.setItem("access_token", token);
-          localStorage.setItem("user", response.data.success.name);
           this.status = response.status;
-          if (localStorage.getItem("access_token") != null) {
-            setTimeout(() => {
-              this.$router.push("/landing");
+           setTimeout(() => {
+             this.$router.push("/login");
+           
             }, 4000);
-          }
         })
 
         .catch((error) => {
           if (is422) {
             this.errors = error.response.data.errors;
-          }
-          if (error.response.status == 401) {
-            alert("Password or Email is Not True");
           }
           this.status = error.response.status;
         });
@@ -105,10 +103,6 @@ export default {
     hasErrors() {
       return 422 == this.status && this.errors != null;
     },
-    Unauthorized() {
-      return 401 == this.status && this.errors != null;
-    },
-
     hasAvailability() {
       return 200 == this.status;
     },
@@ -121,8 +115,8 @@ export default {
 
 
 <style scoped>
-.forget {
-  float: right;
+small a {
+  color: yellow;
 }
 .feedback {
   float: right;
@@ -131,15 +125,13 @@ export default {
   width: 300px;
   padding: 20px;
 }
-small a {
-  color: yellow;
-}
 .form-group {
   color: #ebebeb;
   margin: 100px 0 100px 450px;
 }
-input[type="password"],
-input[type="email"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
   padding: 7px 7px;
   margin: 8px;
@@ -147,7 +139,7 @@ input[type="email"] {
   border: none;
   color: #111;
 }
-
+input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
   background-color: transparent;
@@ -187,6 +179,7 @@ label {
 }
 .text-success {
   color: #42b983;
+  font-weight: bold;
 }
 .fa-window-close {
   float: right;

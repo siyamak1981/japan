@@ -21,3 +21,12 @@ Route::post('/register', 'Api\Auth\Authcontroller@register')->name('api.register
 Route::get('/logout', 'Api\Auth\Authcontroller@logout')->name('api.logout'); 
 Route::post('/forget-password', 'Api\Auth\ForgetPasswordController@sendResetLinkEmail')->name('api.forget-password'); 
 Route::post('/reset-password', 'Api\Auth\ResetPasswordController@reset')->name('api.reset-password'); 
+// Route::group([
+//     'namespace' => 'Auth',
+//     'middleware' => 'api',
+   
+// ], function () {
+//     Route::post('create', 'PasswordResetController@create');
+//     Route::get('find/{token}', 'PasswordResetController@find');
+//     Route::post('reset', 'PasswordResetController@reset');
+// });

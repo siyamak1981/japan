@@ -4,7 +4,7 @@
     <transition>
       <div class="feedback" v-if="hasAvailability" @click="closeFeedback" v-show="windowClose">
         <span class="text-success" v-if="hasAvailability">
-          <small>(You Logged In Successfully!)</small>
+          <small>(Email Must be Varified!)</small>
           <i class="fa fa-window-close" aria-hidden="true"></i>
         </span>
       </div>
@@ -12,37 +12,18 @@
     <div class="col-4 form-group">
       <label for="from">Email:</label>
       <input
-        type="email"
+        type="text"
         name="email"
-        v-model="user.email"
+        v-model="email"
         :class="[{'is_invalid':this.errorFor('email')}]"
         placeholder="Start date.."
       />
       <v-errors :errors="errorFor('email')"></v-errors>
 
-      <label for="from">Password:</label>
-      <input
-        type="password"
-        name="password"
-        v-model="user.password"
-        :class="[{'is_invalid':this.errorFor('password')}]"
-        placeholder="password .."
-      />
-      <v-errors :errors="errorFor('password')"></v-errors>
-      <div>
-        Do not You Have a Acoount?
-        <small>
-          <router-link :to="{name:'register'}">Register</router-link>
-        </small>
-        <small class="forget">
-          <router-link :to="{name:'forgetpassword'}">Forget password?</router-link>
-        </small>
-      </div>
-
-      <button class="btn btn-block" @click.prevent="handleSubmit" :disabled="loading">
-        <span v-if="!loading">Check!</span>
+      <button class="btn btn-block" @click.prevent="forgetPassword" :disabled="loading">
+        <span v-if="!loading">Send Email!</span>
         <span v-if="loading">
-          <i class="fas fa-circle-notch fa-spin"></i> Login...
+          <i class="fas fa-circle-notch fa-spin"></i> Waiting...
         </span>
       </button>
     </div>
@@ -57,41 +38,30 @@ export default {
   mixins: [validationErrors],
   data() {
     return {
-      user: {
-        email: "",
-        password: "",
-      },
-      token: localStorage.getItem("access_token") || null,
+      email: "",
       loading: false,
       status: null,
       windowClose: true,
     };
   },
   methods: {
-    handleSubmit(e) {
+    forgetPassword(e) {
       this.errors = null;
       this.loading = true;
 
       axios
-        .post("/api/login", this.user)
+        .post("/api/forget-password", {
+            email:this.email
+        })
         .then((response) => {
-          const token = response.data.success.token;
-          localStorage.setItem("access_token", token);
-          localStorage.setItem("user", response.data.success.name);
-          this.status = response.status;
-          if (localStorage.getItem("access_token") != null) {
-            setTimeout(() => {
-              this.$router.push("/landing");
-            }, 4000);
-          }
+           this.status = response.status;
+      console.log(response)
+      
         })
 
         .catch((error) => {
           if (is422) {
             this.errors = error.response.data.errors;
-          }
-          if (error.response.status == 401) {
-            alert("Password or Email is Not True");
           }
           this.status = error.response.status;
         });
@@ -105,10 +75,6 @@ export default {
     hasErrors() {
       return 422 == this.status && this.errors != null;
     },
-    Unauthorized() {
-      return 401 == this.status && this.errors != null;
-    },
-
     hasAvailability() {
       return 200 == this.status;
     },
@@ -116,14 +82,13 @@ export default {
       return 404 == this.status;
     },
   },
+
 };
 </script>
 
 
 <style scoped>
-.forget {
-  float: right;
-}
+
 .feedback {
   float: right;
   margin: 30px 30px 0 0px;
@@ -138,8 +103,7 @@ small a {
   color: #ebebeb;
   margin: 100px 0 100px 450px;
 }
-input[type="password"],
-input[type="email"] {
+input[type="text"] {
   width: 100%;
   padding: 7px 7px;
   margin: 8px;
@@ -147,8 +111,7 @@ input[type="email"] {
   border: none;
   color: #111;
 }
-
-input[type="password"]:focus,
+input[type="text"]:focus,
 input[type="email"]:focus {
   background-color: transparent;
   border: 1px solid #eee;

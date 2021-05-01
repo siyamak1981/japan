@@ -7,10 +7,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use App\Notifications\ResetPasswordNotification;
+use App\Traits\HasPermissions;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, HasPermissions;
     /**
      * The attributes that are mass assignable.
      *
@@ -42,4 +43,23 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles');
+    }
+
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'users_permissions');
+    }
+
+    
+    public function hasRole(...$roles)
+    {
+        return $this->roles()->whereIN('slug', $roles)->count();
+    }
+
+
 }

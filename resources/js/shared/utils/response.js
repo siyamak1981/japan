@@ -10,6 +10,7 @@ export const is422 = function(error) {
     );
 };
 
+
 const isErrorWithResponseAndStatus = function(error) {
     return error.response && error.response.status;
 };

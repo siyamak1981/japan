@@ -13,7 +13,7 @@ class ResetPasswordController extends Controller
 {
     public function reset(ResetPasswordRequest $request)
     {
-      
+
         $response = $this->broker()->reset(
             $this->credentials($request),
             function ($user, $password) {
@@ -54,16 +54,16 @@ class ResetPasswordController extends Controller
         $user->setRememberToken(Str::random(60));
         $user->save();
         // event(new PasswordReset($user));
-        
+
     }
 
     protected function credentials(Request $request)
     {
         return $request->only(
-            'email', 'password', 'password_confirmation', 'token'
+            'email',
+            'password',
+            'password_confirmation',
+            'token'
         );
     }
-
-
-   
 }

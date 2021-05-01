@@ -5,6 +5,8 @@ import Review from "./review/Review.vue";
 import Basket from "./basket/Basket.vue";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
+import ForgetPassword from "./auth/ForgetPassword";
+import ResetPassword from "./auth/ResetPassword";
 import Landing from "./front/Landing";
 import VueRouter from "vue-router";
 import Middlewares from "./middlewares/index";
@@ -37,7 +39,20 @@ const router = new VueRouter({
                 middleware: [Middlewares.auth]
             }
         },
-      
+        {
+            name: "resetpassword",
+            path: "/reset-password",
+            component: ResetPassword,
+        
+        },
+        {
+            name: "forgetpassword",
+            path: "/forget-password",
+            component: ForgetPassword,
+            meta: {
+                middleware: [Middlewares.auth]
+            }
+        },
 
         {
             name: "home",
