@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,11 +40,13 @@ class AuthController extends Controller
 
     {
 
+        $developerRole = Role::developer()->first();
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+        $user->roles()->attach($developerRole->id);
         if (!$user) {
 
             return response()->json(["Error" => "User Does not Created !"], 500);
@@ -56,7 +59,7 @@ class AuthController extends Controller
     {
         if (Auth::check()) {
             Auth::user()->token->delete();
-         }
+        }
         return response()->json([
             'message' => 'Successfully logged out'
         ], 200);

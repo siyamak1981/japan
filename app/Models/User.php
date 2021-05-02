@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+  
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -58,7 +59,7 @@ class User extends Authenticatable
     
     public function hasRole(...$roles)
     {
-        return $this->roles()->whereIN('slug', $roles)->count();
+        return $this->roles()->whereIn('slug', $roles)->count();
     }
 
 

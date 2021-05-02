@@ -3,6 +3,7 @@ import Bookables from "./bookables/Bookables.vue";
 import Bookable from "./bookable/Bookable.vue";
 import Review from "./review/Review.vue";
 import Basket from "./basket/Basket.vue";
+import Profile from "./Dashboard/Profile.vue";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import ForgetPassword from "./auth/ForgetPassword";
@@ -24,9 +25,7 @@ const router = new VueRouter({
             name: "login",
             path: "/login",
             component: Login,
-            // meta: {
-            //     middleware: [Middlewares.guest]
-            // }
+       
             meta: {
                 requiresVisitor: true
             }
@@ -35,9 +34,9 @@ const router = new VueRouter({
             name: "register",
             path: "/register",
             component: Register,
-            meta: {
-                middleware: [Middlewares.auth]
-            }
+            // meta: {
+            //     middleware: [Middlewares.auth]
+            // }
         },
         {
             name: "resetpassword",
@@ -49,9 +48,9 @@ const router = new VueRouter({
             name: "forgetpassword",
             path: "/forget-password",
             component: ForgetPassword,
-            meta: {
-                middleware: [Middlewares.auth]
-            }
+            // meta: {
+            //     middleware: [Middlewares.auth]
+            // }
         },
 
         {
@@ -82,6 +81,11 @@ const router = new VueRouter({
                     path: "/basket",
                     name: "basket",
                     component: Basket
+                },
+                {
+                    path: "/profile",
+                    name: "profile",
+                    component: Profile
                 }
             ]
         }

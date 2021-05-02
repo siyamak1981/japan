@@ -1,80 +1,102 @@
-// export default {
-//     state: {
-//         lastSearch: {
-//             from: null,
-//             to: null
-//         },
+import axios from "axios";
 
-//         basket: {
-//             items: []
-//         },
-    
-//     },
+export default {
+    state: {
+        lastSearch: {
+            from: null,
+            to: null
+        },
 
-//     mutations: {
-//         setLastSearch(state, payload) {
-//             state.lastSearch = payload;
-//         },
+        basket: {
+            items: []
+        },
+        userDetails: {}
+    },
 
-//         addToBasket(state, payload) {
-//             state.basket.items.push(payload);
-//         },
+    mutations: {
+        setLastSearch(state, payload) {
+            state.lastSearch = payload;
+        },
 
-//         removeFromBasket(state, payload) {
-//             state.basket.items = state.basket.items.filter(
-//                 item => item.bookable.id !== payload
-//             );
-//         },
+        addToBasket(state, payload) {
+            state.basket.items.push(payload);
+        },
 
-//         setBasket(state, payload) {
-//             state.basket = payload;
-//         }
-//     },
+        removeFromBasket(state, payload) {
+            state.basket.items = state.basket.items.filter(
+                item => item.bookable.id !== payload
+            );
+        },
 
-//     actions: {
-//         setLastSearch(context, payload) {
-//             context.commit("setLastSearch", payload);
-//             localStorage.setItem("lastSearch", JSON.stringify(payload));
-//         },
+        setBasket(state, payload) {
+            state.basket = payload;
+        },
+        setUserDetailes(state, payload) {
+            state.userDetails = payload;
+        }
+    },
 
-//         loadStoredState(context) {
-//             const lastSearch = localStorage.getItem("lastSearch");
-//             if (lastSearch) {
-//                 context.commit("setLastSearch", JSON.parse(lastSearch));
-//             }
+    actions: {
+        me(context) {
+            return new Promise((resolve, reject) => {
+                axios.get('/api/me')
+                .then(response=>{
+                    context.commit('setUserDetailes', response.data)
+                    console.log(response.data)
+                    resolve(response)
+                })
+                .catch(error =>{
+                    reject(error)
+                    console.log(error);
+                })
+            });
+        },
+        setLastSearch(context, payload) {
+            context.commit("setLastSearch", payload);
+            localStorage.setItem("lastSearch", JSON.stringify(payload));
+        },
 
-//             const basket = localStorage.getItem("basket");
-//             if (basket) {
-//                 context.commit("setBasket", JSON.parse(basket));
-//             }
-//         },
+        loadStoredState(context) {
+            const lastSearch = localStorage.getItem("lastSearch");
+            if (lastSearch) {
+                context.commit("setLastSearch", JSON.parse(lastSearch));
+            }
 
-//         addToBasket({ commit, state }, payload) {
-//             commit("addToBasket", payload);
-//             localStorage.setItem("basket", JSON.stringify(state.basket));
-//         },
+            const basket = localStorage.getItem("basket");
+            if (basket) {
+                context.commit("setBasket", JSON.parse(basket));
+            }
+        },
 
-//         removeFromBasket({ commit, state }, payload) {
-//             commit("removeFromBasket", payload);
-//             localStorage.setItem("basket", JSON.stringify(state.basket));
-//         },
+        addToBasket({ commit, state }, payload) {
+            commit("addToBasket", payload);
+            localStorage.setItem("basket", JSON.stringify(state.basket));
+        },
 
-//         clearBasket({ commit, state }, payload) {
-//             commit("setBasket", { items: [] });
-//             localStorage.setItem("basket", JSON.stringify(state.basket));
-//         }
-//     },
+        removeFromBasket({ commit, state }, payload) {
+            commit("removeFromBasket", payload);
+            localStorage.setItem("basket", JSON.stringify(state.basket));
+        },
 
-//     getters: {
-//         itemsInBasket: state => state.basket.items.length,
+        clearBasket({ commit, state }, payload) {
+            commit("setBasket", { items: [] });
+            localStorage.setItem("basket", JSON.stringify(state.basket));
+        }
+    },
 
-//         inBasketAlready(state) {
-//             return function(id) {
-//                 return state.basket.items.reduce(
-//                     (result, item) => result || item.bookable.id === id,
-//                     false
-//                 );
-//             };
-//         }
-//     }
-// };
+    getters: {
+        itemsInBasket: state => state.basket.items.length,
+
+        inBasketAlready(state) {
+            return function(id) {
+                return state.basket.items.reduce(
+                    (result, item) => result || item.bookable.id === id,
+                    false
+                );
+            };
+        },
+        userDetailes(state) {
+            return state.userDetails;
+        }
+    }
+};

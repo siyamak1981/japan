@@ -96,7 +96,7 @@ export default {
       return this.$store.getters.inBasketAlready(this.bookable.id);
     },
     ...mapGetters({
-      itemsInBasket: "itemsInBasket",
+      userDetailes: "userDetailes",
     }),
   },
   methods: {

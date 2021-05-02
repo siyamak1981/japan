@@ -13,6 +13,7 @@
     <div class="navigation-icons">
       <i class="fas fa-home"></i>
       <i class="fas fa-camera-retro"></i>
+      <i class="fas fa-user-circle"></i>
     </div>
 
     <div class="navigation-link">
@@ -22,6 +23,9 @@
         </div>
         <div v-show="showLink" key="3">
           <router-link :to="{name:'bookables'}">Bookable</router-link>
+        </div>
+        <div v-show="showLink" key="4">
+          <router-link :to="{name:'profile'}">Profile</router-link>
         </div>
       </transition-group>
     </div>
@@ -50,11 +54,6 @@ export default {
         this.showLink = true;
         this.showSidebar = true;
         document.getElementById("app").style.paddingLeft = "150px";
-
-        // setTimeout(() => {
-        //   this.showLink = true;
-        //   // document.getElementById("app").style.paddingLeft = "150px";
-        // }, 500);
       }
     },
   },
@@ -152,7 +151,7 @@ export default {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   
 }
